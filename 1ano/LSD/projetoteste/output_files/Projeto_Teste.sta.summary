@@ -1,0 +1,113 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
+Slack : -3.946
+TNS   : -143.028
+
+Type  : Slow 1200mV 85C Model Setup 'clk_divider_duplo:clkdiv_inst|s_clk1hz'
+Slack : -0.920
+TNS   : -1.983
+
+Type  : Slow 1200mV 85C Model Setup 'clk_divider_duplo:clkdiv_inst|s_clk4hz'
+Slack : 0.210
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk_divider_duplo:clkdiv_inst|s_clk1hz'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : 0.427
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk_divider_duplo:clkdiv_inst|s_clk4hz'
+Slack : 0.445
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -71.105
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_divider_duplo:clkdiv_inst|s_clk1hz'
+Slack : -1.285
+TNS   : -5.140
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_divider_duplo:clkdiv_inst|s_clk4hz'
+Slack : -1.285
+TNS   : -1.285
+
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -3.610
+TNS   : -125.906
+
+Type  : Slow 1200mV 0C Model Setup 'clk_divider_duplo:clkdiv_inst|s_clk1hz'
+Slack : -0.720
+TNS   : -1.477
+
+Type  : Slow 1200mV 0C Model Setup 'clk_divider_duplo:clkdiv_inst|s_clk4hz'
+Slack : 0.297
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk_divider_duplo:clkdiv_inst|s_clk1hz'
+Slack : 0.354
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.386
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk_divider_duplo:clkdiv_inst|s_clk4hz'
+Slack : 0.398
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -71.105
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_divider_duplo:clkdiv_inst|s_clk1hz'
+Slack : -1.285
+TNS   : -5.140
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_divider_duplo:clkdiv_inst|s_clk4hz'
+Slack : -1.285
+TNS   : -1.285
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -1.518
+TNS   : -41.773
+
+Type  : Fast 1200mV 0C Model Setup 'clk_divider_duplo:clkdiv_inst|s_clk1hz'
+Slack : 0.050
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk_divider_duplo:clkdiv_inst|s_clk4hz'
+Slack : 0.626
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk_divider_duplo:clkdiv_inst|s_clk1hz'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.192
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk_divider_duplo:clkdiv_inst|s_clk4hz'
+Slack : 0.208
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -59.271
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_divider_duplo:clkdiv_inst|s_clk1hz'
+Slack : -1.000
+TNS   : -4.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_divider_duplo:clkdiv_inst|s_clk4hz'
+Slack : -1.000
+TNS   : -1.000
+
+------------------------------------------------------------

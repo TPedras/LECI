@@ -1,0 +1,77 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+!s11f vlog 2023.3 2023.07, Jul 17 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 d/home/pedrosa/Documents/LSD/aula04/parte1/simulation/qsim
+T_opt
+Z3 !s110 1741705581
+VJ9UWJJl3eUzQWFK^h^PAB3
+04 21 4 work FlipFlopD_vlg_vec_tst fast 0
+=1-f8b54d96c7ab-67d0516d-6dfdc-6aca
+R1
+!s12b OEM100
+!s124 OEM10U2 
+o-quiet -auto_acc_if_foreign -work work -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver +acc
+Z4 tCvgOpt 0
+n@_opt
+OL;O;2023.3;77
+vFlipFlopD
+2FlipFlopD_Demo.vo
+R3
+!i10b 1
+!s100 C`IOcCV_Yf96>H?@gAhkg1
+I2=@[<eL>::6`e];<?FCH]0
+R2
+Z5 w1741705580
+8FlipFlopD_Demo.vo
+FFlipFlopD_Demo.vo
+!i122 4
+L0 32 117
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+Z7 OL;L;2023.3;77
+r1
+!s85 0
+31
+Z8 !s108 1741705581.000000
+!s107 FlipFlopD_Demo.vo|
+!s90 -work|work|FlipFlopD_Demo.vo|
+!i113 0
+Z9 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R4
+n@flip@flop@d
+vFlipFlopD_vlg_vec_tst
+2FlipFlopDSim.vwf.vt
+R3
+!i10b 1
+!s100 aWzb73L8O_C_HfJbP7iEO2
+IVBCeKkz:@P0@O>WzPcD]o0
+R2
+R5
+8FlipFlopDSim.vwf.vt
+FFlipFlopDSim.vwf.vt
+!i122 5
+L0 30 1084
+R6
+R7
+r1
+!s85 0
+31
+R8
+!s107 FlipFlopDSim.vwf.vt|
+!s90 -work|work|FlipFlopDSim.vwf.vt|
+!i113 0
+R9
+R4
+n@flip@flop@d_vlg_vec_tst

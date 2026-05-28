@@ -1,0 +1,36 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity SeqDetector is
+    port (
+        CLOCK_50 : in std_logic;
+        SW       : in std_logic_vector(0 downto 0);
+        LEDR     : out std_logic_vector(0 downto 0);
+        LEDG     : out std_logic_vector(0 downto 0)
+    );
+end SeqDetector;
+
+architecture Structural of SeqDetector is
+    signal clk_slow  : std_logic;
+    signal reset     : std_logic := '0'; -- pode ser mapeado se necessário
+begin
+
+    clkdiv_inst : entity work.ClockDivider
+        port map (
+            clk_in  => CLOCK_50,
+            reset   => reset,
+            clk_out => clk_slow
+        );
+
+    fsm_inst : entity work.SeqDetFSM(MealyArch)
+        port map (
+            reset => reset,
+            clk   => clk_slow,
+            xIn   => SW(0),
+            zOut  => LEDR(0)
+        );
+
+    -- mostrar clock lento
+    LEDG(0) <= clk_slow;
+
+end Structural;

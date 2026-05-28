@@ -1,0 +1,86 @@
+m255
+K4
+z2
+!s11e vcom 2023.3 2023.07, Jul 17 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/pedrosa/Documents/LSD/MiniProjeto_2/simulation/qsim
+Esemaforos_top
+Z1 w1748927571
+Z2 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 JFD354ZMY?;ZG1UUQ_P^@1
+Z3 DPx10 cycloneive 21 cycloneive_components 0 22 :CA=Yg0R^TdJ3>^OGfeMR2
+Z4 DPx4 ieee 16 vital_primitives 0 22 Y]H?Y_]z4@VoaWAGJ=36m1
+Z5 DPx6 altera 11 dffeas_pack 0 22 mB4IFnUT3:DoZN@NS]Gzg0
+Z6 DPx4 ieee 12 vital_timing 0 22 6STbz=m1W[80IE06h_el^0
+Z7 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
+Z8 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
+Z9 DPx6 altera 28 altera_primitives_components 0 22 >1_OP3SHemAi5ZBLF?7g43
+!i122 4
+R0
+Z10 8semaforos_top.vho
+Z11 Fsemaforos_top.vho
+l0
+L37 1
+VMV?ZZoU61djZHzaNTci4d1
+!s100 _16:c`iK?3W4WLhQ_Z30T3
+Z12 OL;C;2023.3;77
+32
+Z13 !s110 1748927572
+!i10b 1
+Z14 !s108 1748927571.000000
+Z15 !s90 -work|work|semaforos_top.vho|
+Z16 !s107 semaforos_top.vho|
+!i113 0
+Z17 o-work work
+Z18 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+DEx4 work 13 semaforos_top 0 22 MV?ZZoU61djZHzaNTci4d1
+!i122 4
+l237
+L52 2532
+Vn2Y798SgC32S=_1[8=ZRg0
+!s100 =e[kO4If2O5aOn`onlQ8R2
+R12
+32
+R13
+!i10b 1
+R14
+R15
+R16
+!i113 0
+R17
+R18
+Esemaforos_top_vhd_vec_tst
+w1748927570
+R7
+R8
+!i122 5
+R0
+8Waveform.vwf.vht
+FWaveform.vwf.vht
+l0
+L32 1
+V6jGjG5H5R>:UnOeGBhP_Z0
+!s100 SKg^mD]G8P;d4SPB8K0oD1
+R12
+32
+R13
+!i10b 1
+!s108 1748927572.000000
+!s90 -work|work|Waveform.vwf.vht|
+!s107 Waveform.vwf.vht|
+!i113 0
+R17
+R18

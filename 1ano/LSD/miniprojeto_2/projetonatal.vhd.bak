@@ -1,0 +1,25 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity top_level is  -- Fixed entity name (no hyphen)
+  port (
+    CLOCK_50 : in  std_logic;                     -- Clock de 50MHz
+    KEY      : in  std_logic_vector(1 downto 0);  -- KEY[0] reset, KEY[1] freeze
+    HEX0     : out std_logic_vector(6 downto 0);  -- Unidades
+    HEX1     : out std_logic_vector(6 downto 0);  -- Dezenas
+    HEX2     : out std_logic_vector(6 downto 0)   -- Negativo
+  );
+end top_level;
+
+architecture structural of top_level is
+  signal clk2hz     : std_logic;
+  signal count      : unsigned(3 downto 0);
+  signal sinal      : std_logic;
+  signal hex0_sig   : std_logic_vector(6 downto 0);
+  signal hex1_sig   : std_logic_vector(6 downto 0);
+  signal hex2_sig   : std_logic_vector(6 downto 0);
+  signal decOut0_sig: std_logic_vector(3 downto 0);
+  signal decOut1_sig: std_logic_vector(3 downto 0);
+
+begin

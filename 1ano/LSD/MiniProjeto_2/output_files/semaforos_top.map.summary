@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Jun  3 12:16:52 2025
+Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Revision Name : semaforos_top
+Top-level Entity Name : semaforos_top
+Family : Cyclone IV E
+Total logic elements : 160
+    Total combinational functions : 159
+    Dedicated logic registers : 67
+Total registers : 67
+Total pins : 58
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

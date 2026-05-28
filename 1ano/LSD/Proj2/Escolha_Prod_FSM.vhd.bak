@@ -1,0 +1,84 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity Escolha_Prod_FSM is
+    Port (
+        clk           : in  std_logic;
+        rst           : in  std_logic;
+        time_exp      : in  std_logic;
+        start_cafe    : in  std_logic;
+        start_cha     : in  std_logic;
+        SW0           : in  std_logic;
+        SW1           : in  std_logic;
+        NewTime       : out integer range 0 to 15;
+        start_timer   : out std_logic;
+        select_word   : out std_logic_vector(3 downto 0);
+        led_r         : out std_logic;
+        led_g         : out std_logic
+    );
+end Escolha_Prod_FSM;
+
+architecture Behavioral of Escolha_Prod_FSM is
+    type State_Type is (hold_helo, hold_drinks, start_cafe, start_cha, cafe_ready, cha_ready);
+    signal state : State_Type := hold_helo;
+begin
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            if rst = '1' then
+                state <= hold_helo;
+            else
+                case state is
+                    when hold_helo =>
+                        select_word <= "0001"; -- HELO
+                        NewTime <= 5;
+                        start_timer <= '1';
+                        led_r <= '0';
+                        led_g <= '0';
+                        if time_exp = '1' then
+                            state <= hold_drinks;
+                        end if;
+                    when hold_drinks =>
+                        select_word <= "0010"; -- EbEb
+                        start_timer <= '0';
+                        led_r <= '0';
+                        led_g <= '0';
+                        if start_cafe = '1' then
+                            state <= start_cafe;
+                            NewTime <= 10;
+                            start_timer <= '1';
+                            select_word <= "0100"; -- CAFE
+                        elsif start_cha = '1' then
+                            state <= start_cha;
+                            NewTime <= 6;
+                            start_timer <= '1';
+                            select_word <= "1000"; -- CHA
+                        end if;
+                    when start_cafe =>
+                        led_r <= '1';
+                        if time_exp = '1' then
+                            state <= cafe_ready;
+                        end if;
+                    when cafe_ready =>
+                        led_r <= '0';
+                        led_g <= '1';
+                        if SW0 = '0' then
+                            state <= hold_drinks;
+                        end if;
+                    when start_cha =>
+                        led_r <= '1';
+                        if time_exp = '1' then
+                            state <= cha_ready;
+                        end if;
+                    when cha_ready =>
+                        led_r <= '0';
+                        led_g <= '1';
+                        if SW1 = '0' then
+                            state <= hold_drinks;
+                        end if;
+                end case;
+            end if;
+        end if;
+    end process;
+end Behavioral;

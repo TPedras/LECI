@@ -1,0 +1,38 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity FreqDiv is
+    Port (
+        clk_in     : in  STD_LOGIC;
+        rst        : in  STD_LOGIC;
+        clk_1Hz    : out STD_LOGIC;
+        pulse_1Hz  : out STD_LOGIC 
+		  );
+end FreqDiv;
+
+architecture Behavioral of FreqDiv is
+    constant MAX_COUNT : integer := 50000000;
+    signal counter     : integer range 0 to MAX_COUNT - 1 := 0;
+    signal clk_out     : STD_LOGIC := '0';
+begin
+
+    process(clk_in)
+    begin
+        if rising_edge(clk_in) then
+            if rst = '1' then
+                counter <= 0;
+                clk_out <= '0';
+            elsif counter = (MAX_COUNT - 1) then
+                counter <= 0;
+                clk_out <= not clk_out;
+            else
+                counter <= counter + 1;
+            end if;
+        end if;
+    end process;
+
+    clk_1Hz   <= clk_out;
+    pulse_1Hz <= '1' when counter = 0 else '0';
+
+end Behavioral;

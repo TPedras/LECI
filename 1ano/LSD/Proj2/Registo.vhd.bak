@@ -1,0 +1,23 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity Registo is
+    Port (
+        clk    : in  std_logic;
+        cafe   : in  std_logic;
+        cha    : in  std_logic;
+        start_cafe : out std_logic;
+        start_cha  : out std_logic
+    );
+end Registo;
+
+architecture Behavioral of Registo is
+begin
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            start_cafe <= cafe;
+            start_cha  <= cha;
+        end if;
+    end process;
+end Behavioral;

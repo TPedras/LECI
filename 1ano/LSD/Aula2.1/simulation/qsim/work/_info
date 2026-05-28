@@ -1,0 +1,79 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+R0
+R1
+!s11f vlog 2023.3 2023.07, Jul 17 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 d/home/pedrosa/Documents/LSD/Aula2.1/simulation/qsim
+T_opt
+Z3 !s110 1739891606
+VE5WHFQ=68@Mm;8^9MCd6U0
+04 20 4 work Dec2_4En_vlg_vec_tst fast 0
+=1-f8b54d96c7ab-67b4a396-90fa3-1edc8
+R1
+!s12b OEM100
+!s124 OEM10U2 
+o-quiet -auto_acc_if_foreign -work work -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver +acc
+Z4 tCvgOpt 0
+n@_opt
+OL;O;2023.3;77
+vDec2_4En
+2Dec2_4EnDemo.vo
+R3
+!i10b 1
+!s100 ZKRm]J;HIk1GORdNa<CKN2
+IZ<ba3M6b8R@:z5kfHDUiW3
+R2
+w1739891605
+8Dec2_4EnDemo.vo
+FDec2_4EnDemo.vo
+!i122 6
+L0 32 180
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2023.3;77
+r1
+!s85 0
+31
+Z7 !s108 1739891606.000000
+!s107 Dec2_4EnDemo.vo|
+!s90 -work|work|Dec2_4EnDemo.vo|
+!i113 0
+Z8 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R4
+n@dec2_4@en
+vDec2_4En_vlg_vec_tst
+2Waveform.vwf.vt
+R3
+!i10b 1
+!s100 UW20dE7ebJn0^jYYN^ao?2
+I@fEIF9T9a04=d<NTnB5DY1
+R2
+w1739891604
+8Waveform.vwf.vt
+FWaveform.vwf.vt
+!i122 7
+L0 30 63
+R5
+R6
+r1
+!s85 0
+31
+R7
+!s107 Waveform.vwf.vt|
+!s90 -work|work|Waveform.vwf.vt|
+!i113 0
+R8
+R4
+n@dec2_4@en_vlg_vec_tst
