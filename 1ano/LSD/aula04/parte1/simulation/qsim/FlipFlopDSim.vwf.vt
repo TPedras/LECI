@@ -1,0 +1,1114 @@
+// Copyright (C) 2023  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "03/11/2025 15:06:20"
+                                                                                
+// Verilog Test Bench (with test vectors) for design :                          FlipFlopD
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module FlipFlopD_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg clk;
+reg d;
+reg reset;
+reg set;
+// wires                                               
+wire q;
+
+// assign statements (if any)                          
+FlipFlopD i1 (
+// port map - connection between master ports and signals/registers   
+	.clk(clk),
+	.d(d),
+	.q(q),
+	.reset(reset),
+	.set(set)
+);
+initial 
+begin 
+#1000000 $finish;
+end 
+
+// clk
+always
+begin
+	clk = 1'b0;
+	clk = #5000 1'b1;
+	#5000;
+end 
+
+// d
+initial
+begin
+	d = 1'b1;
+	d = #2645 1'b0;
+	d = #14000 1'b1;
+	d = #3355 1'b0;
+	d = #2842 1'b1;
+	d = #10400 1'b0;
+	d = #10173 1'b1;
+	d = #6800 1'b0;
+	d = #9785 1'b1;
+	d = #3779 1'b0;
+	d = #4500 1'b1;
+	d = #1721 1'b0;
+	d = #1552 1'b1;
+	# 2333;
+	repeat(2)
+	begin
+		d = 1'b0;
+		d = #4333 1'b1;
+		# 2333;
+	end
+	d = 1'b0;
+	d = #3461 1'b1;
+	# 1099;
+	repeat(2)
+	begin
+		d = 1'b0;
+		d = #2234 1'b1;
+		# 1099;
+	end
+	d = 1'b0;
+	d = #1557 1'b1;
+	d = #545 1'b0;
+	d = #8800 1'b1;
+	d = #12068 1'b0;
+	d = #5500 1'b1;
+	d = #4480 1'b0;
+	d = #10400 1'b1;
+	d = #8207 1'b0;
+	d = #1350 1'b1;
+	# 3199;
+	repeat(2)
+	begin
+		d = 1'b0;
+		d = #3467 1'b1;
+		# 3199;
+	end
+	d = 1'b0;
+	d = #8436 1'b1;
+	d = #6800 1'b0;
+	d = #6883 1'b1;
+	d = #5024 1'b0;
+	d = #4700 1'b1;
+	d = #5300 1'b0;
+	d = #4700 1'b1;
+	d = #276 1'b0;
+	d = #3376 1'b1;
+	# 2466;
+	repeat(2)
+	begin
+		d = 1'b0;
+		d = #4200 1'b1;
+		# 2466;
+	end
+	d = 1'b0;
+	d = #826 1'b1;
+	d = #4539 1'b0;
+	d = #12600 1'b1;
+	d = #9311 1'b0;
+	d = #10200 1'b1;
+	d = #3350 1'b0;
+	d = #3533 1'b1;
+	d = #7200 1'b0;
+	d = #12366 1'b1;
+	d = #1550 1'b0;
+	d = #3450 1'b1;
+	d = #1550 1'b0;
+	d = #351 1'b1;
+	d = #4013 1'b0;
+	d = #5800 1'b1;
+	d = #4200 1'b0;
+	d = #5800 1'b1;
+	d = #187 1'b0;
+	d = #972 1'b1;
+	# 1333;
+	repeat(2)
+	begin
+		d = 1'b0;
+		d = #2000 1'b1;
+		# 1333;
+	end
+	d = 1'b0;
+	d = #8274 1'b1;
+	d = #11000 1'b0;
+	d = #1755 1'b1;
+	# 3810;
+	repeat(2)
+	begin
+		d = 1'b0;
+		d = #2800 1'b1;
+		# 3866;
+	end
+	d = 1'b0;
+	d = #2800 1'b1;
+	d = #58 1'b0;
+	d = #867 1'b1;
+	# 1066;
+	repeat(2)
+	begin
+		d = 1'b0;
+		d = #2267 1'b1;
+		# 1066;
+	end
+	d = 1'b0;
+	d = #1401 1'b1;
+	d = #4173 1'b0;
+	d = #10400 1'b1;
+	d = #5427 1'b0;
+	d = #1921 1'b1;
+	d = #2400 1'b0;
+	d = #2600 1'b1;
+	d = #2400 1'b0;
+	d = #10725 1'b1;
+	d = #9200 1'b0;
+	d = #2308 1'b1;
+	d = #4300 1'b0;
+	d = #4146 1'b1;
+	d = #3653 1'b0;
+	d = #5000 1'b1;
+	d = #5000 1'b0;
+	d = #5000 1'b1;
+	d = #4380 1'b0;
+	d = #5200 1'b1;
+	d = #1767 1'b0;
+	d = #48 1'b1;
+	# 1966;
+	repeat(2)
+	begin
+		d = 1'b0;
+		d = #1367 1'b1;
+		# 1966;
+	end
+	d = 1'b0;
+	d = #1497 1'b1;
+	d = #3600 1'b0;
+	d = #13954 1'b1;
+	d = #9000 1'b0;
+	d = #4468 1'b1;
+	# 1999;
+	repeat(2)
+	begin
+		d = 1'b0;
+		d = #4667 1'b1;
+		# 1999;
+	end
+	d = 1'b0;
+	d = #7626 1'b1;
+	d = #4900 1'b0;
+	d = #5100 1'b1;
+	d = #4900 1'b0;
+	d = #1422 1'b1;
+	d = #7800 1'b0;
+	d = #11774 1'b1;
+	d = #4500 1'b0;
+	d = #5500 1'b1;
+	d = #4500 1'b0;
+	d = #5448 1'b1;
+	d = #4102 1'b0;
+	d = #11200 1'b1;
+	d = #5906 1'b0;
+	d = #1900 1'b1;
+	d = #1433 1'b0;
+	d = #1900 1'b1;
+	d = #1433 1'b0;
+	d = #1900 1'b1;
+	d = #226 1'b0;
+	d = #728 1'b1;
+	# 3732;
+	repeat(2)
+	begin
+		d = 1'b0;
+		d = #2934 1'b1;
+		# 3732;
+	end
+	d = 1'b0;
+	d = #3502 1'b1;
+	d = #2350 1'b0;
+	d = #2650 1'b1;
+	d = #2350 1'b0;
+	d = #3125 1'b1;
+	# 2866;
+	repeat(2)
+	begin
+		d = 1'b0;
+		d = #3800 1'b1;
+		# 2866;
+	end
+	d = 1'b0;
+	d = #2033 1'b1;
+	# 1151;
+	repeat(2)
+	begin
+		d = 1'b0;
+		d = #3400 1'b1;
+		# 3266;
+	end
+	d = 1'b0;
+	d = #3400 1'b1;
+	d = #2117 1'b0;
+	d = #6339 1'b1;
+	d = #9400 1'b0;
+	d = #4261 1'b1;
+	# 1119;
+	repeat(2)
+	begin
+		d = 1'b0;
+		d = #3467 1'b1;
+		# 3199;
+	end
+	d = 1'b0;
+	d = #3467 1'b1;
+	d = #2235 1'b0;
+	d = #2000 1'b1;
+	d = #1333 1'b0;
+	d = #2000 1'b1;
+	d = #1333 1'b0;
+	d = #2000 1'b1;
+	d = #1181 1'b0;
+	d = #3850 1'b1;
+	d = #5900 1'b0;
+	d = #1232 1'b1;
+	# 3066;
+	repeat(2)
+	begin
+		d = 1'b0;
+		d = #3600 1'b1;
+		# 3066;
+	end
+	d = 1'b0;
+	d = #2620 1'b1;
+	# 965;
+	repeat(2)
+	begin
+		d = 1'b0;
+		d = #3400 1'b1;
+		# 3266;
+	end
+	d = 1'b0;
+	d = #3400 1'b1;
+	d = #6097 1'b0;
+	d = #5500 1'b1;
+	d = #4500 1'b0;
+	d = #5500 1'b1;
+	d = #8117 1'b0;
+	d = #10200 1'b1;
+	d = #2389 1'b0;
+	d = #4415 1'b1;
+	d = #3400 1'b0;
+	d = #2830 1'b1;
+	d = #3100 1'b0;
+	d = #6900 1'b1;
+	d = #3100 1'b0;
+	d = #7871 1'b1;
+	d = #1750 1'b0;
+	d = #3250 1'b1;
+	d = #1750 1'b0;
+	d = #4005 1'b1;
+	d = #3500 1'b0;
+	d = #6500 1'b1;
+	d = #3500 1'b0;
+	d = #4129 1'b1;
+	# 1623;
+	repeat(2)
+	begin
+		d = 1'b0;
+		d = #2734 1'b1;
+		# 3932;
+	end
+	d = 1'b0;
+	d = #2734 1'b1;
+	d = #3533 1'b0;
+	d = #3300 1'b1;
+	d = #1700 1'b0;
+	d = #3300 1'b1;
+	d = #2563 1'b0;
+	d = #5900 1'b1;
+	d = #2162 1'b0;
+	d = #6800 1'b1;
+	d = #3053 1'b0;
+	d = #4900 1'b1;
+	d = #4300 1'b0;
+	d = #800 1'b1;
+	d = #6024 1'b0;
+	d = #13000 1'b1;
+	d = #976 1'b0;
+	d = #617 1'b1;
+	d = #3200 1'b0;
+	d = #6183 1'b1;
+	d = #937 1'b0;
+	d = #6200 1'b1;
+	d = #3800 1'b0;
+	d = #6200 1'b1;
+end 
+
+// reset
+initial
+begin
+	reset = 1'b1;
+	reset = #267 1'b0;
+	reset = #6000 1'b1;
+	reset = #4000 1'b0;
+	reset = #6000 1'b1;
+	reset = #9102 1'b0;
+	reset = #12200 1'b1;
+	reset = #2431 1'b0;
+	reset = #1113 1'b1;
+	reset = #2300 1'b0;
+	reset = #2700 1'b1;
+	reset = #2300 1'b0;
+	reset = #3564 1'b1;
+	# 1133;
+	repeat(2)
+	begin
+		reset = 1'b0;
+		reset = #2200 1'b1;
+		# 1133;
+	end
+	reset = 1'b0;
+	reset = #2764 1'b1;
+	reset = #2000 1'b0;
+	reset = #3000 1'b1;
+	reset = #2000 1'b0;
+	reset = #4183 1'b1;
+	reset = #6000 1'b0;
+	reset = #2773 1'b1;
+	# 3066;
+	repeat(2)
+	begin
+		reset = 1'b0;
+		reset = #3600 1'b1;
+		# 3066;
+	end
+	reset = 1'b0;
+	reset = #1106 1'b1;
+	reset = #3022 1'b0;
+	reset = #5900 1'b1;
+	reset = #4100 1'b0;
+	reset = #5900 1'b1;
+	reset = #1078 1'b0;
+	reset = #2559 1'b1;
+	reset = #1550 1'b0;
+	reset = #3450 1'b1;
+	reset = #1550 1'b0;
+	reset = #2154 1'b1;
+	# 3066;
+	repeat(2)
+	begin
+		reset = 1'b0;
+		reset = #3600 1'b1;
+		# 3066;
+	end
+	reset = 1'b0;
+	reset = #2339 1'b1;
+	reset = #2288 1'b0;
+	reset = #5100 1'b1;
+	reset = #4900 1'b0;
+	reset = #5100 1'b1;
+	reset = #4885 1'b0;
+	reset = #3667 1'b1;
+	reset = #2999 1'b0;
+	reset = #3667 1'b1;
+	reset = #2999 1'b0;
+	reset = #3667 1'b1;
+	reset = #4569 1'b0;
+	reset = #4100 1'b1;
+	reset = #5900 1'b0;
+	reset = #4100 1'b1;
+	reset = #2999 1'b0;
+	reset = #2167 1'b1;
+	reset = #1166 1'b0;
+	reset = #2167 1'b1;
+	reset = #1166 1'b0;
+	reset = #2167 1'b1;
+	reset = #227 1'b0;
+	reset = #113 1'b1;
+	reset = #11000 1'b0;
+	reset = #8887 1'b1;
+	reset = #2981 1'b0;
+	reset = #12200 1'b1;
+	reset = #5165 1'b0;
+	reset = #2267 1'b1;
+	reset = #1066 1'b0;
+	reset = #2267 1'b1;
+	reset = #1066 1'b0;
+	reset = #2267 1'b1;
+	reset = #721 1'b0;
+	reset = #613 1'b1;
+	reset = #3700 1'b0;
+	reset = #6300 1'b1;
+	reset = #3700 1'b0;
+	reset = #5687 1'b1;
+	# 259;
+	repeat(2)
+	begin
+		reset = 1'b0;
+		reset = #3000 1'b1;
+		# 3666;
+	end
+	reset = 1'b0;
+	reset = #3000 1'b1;
+	reset = #3806 1'b0;
+	reset = #2667 1'b1;
+	reset = #3999 1'b0;
+	reset = #2667 1'b1;
+	reset = #3999 1'b0;
+	reset = #2667 1'b1;
+	reset = #10741 1'b0;
+	reset = #12800 1'b1;
+	reset = #63 1'b0;
+	reset = #12118 1'b1;
+	reset = #7000 1'b0;
+	reset = #4640 1'b1;
+	reset = #4000 1'b0;
+	reset = #6000 1'b1;
+	reset = #4000 1'b0;
+	reset = #2817 1'b1;
+	# 3066;
+	repeat(2)
+	begin
+		reset = 1'b0;
+		reset = #3600 1'b1;
+		# 3066;
+	end
+	reset = 1'b0;
+	reset = #3027 1'b1;
+	reset = #3216 1'b0;
+	reset = #5700 1'b1;
+	reset = #1084 1'b0;
+	reset = #9802 1'b1;
+	reset = #9200 1'b0;
+	reset = #2680 1'b1;
+	# 1099;
+	repeat(2)
+	begin
+		reset = 1'b0;
+		reset = #2234 1'b1;
+		# 1099;
+	end
+	reset = 1'b0;
+	reset = #553 1'b1;
+	# 388;
+	repeat(2)
+	begin
+		reset = 1'b0;
+		reset = #2234 1'b1;
+		# 1099;
+	end
+	reset = 1'b0;
+	reset = #2234 1'b1;
+	reset = #712 1'b0;
+	reset = #427 1'b1;
+	reset = #2250 1'b0;
+	reset = #2750 1'b1;
+	reset = #2250 1'b0;
+	reset = #2323 1'b1;
+	reset = #1822 1'b0;
+	reset = #5800 1'b1;
+	reset = #4200 1'b0;
+	reset = #5800 1'b1;
+	reset = #2378 1'b0;
+	reset = #1210 1'b1;
+	reset = #2950 1'b0;
+	reset = #2050 1'b1;
+	reset = #2950 1'b0;
+	reset = #5383 1'b1;
+	reset = #6400 1'b0;
+	reset = #9057 1'b1;
+	reset = #513 1'b0;
+	reset = #5200 1'b1;
+	reset = #4287 1'b0;
+	reset = #2175 1'b1;
+	reset = #2100 1'b0;
+	reset = #2900 1'b1;
+	reset = #2100 1'b0;
+	reset = #2406 1'b1;
+	reset = #2250 1'b0;
+	reset = #2750 1'b1;
+	reset = #2250 1'b0;
+	reset = #1069 1'b1;
+	reset = #2923 1'b0;
+	reset = #4900 1'b1;
+	reset = #5100 1'b0;
+	reset = #4900 1'b1;
+	reset = #2786 1'b0;
+	reset = #2200 1'b1;
+	reset = #1133 1'b0;
+	reset = #2200 1'b1;
+	reset = #1133 1'b0;
+	reset = #2200 1'b1;
+	reset = #525 1'b0;
+	reset = #6222 1'b1;
+	reset = #3700 1'b0;
+	reset = #761 1'b1;
+	reset = #4100 1'b0;
+	reset = #5694 1'b1;
+	# 2599;
+	repeat(2)
+	begin
+		reset = 1'b0;
+		reset = #4067 1'b1;
+		# 2599;
+	end
+	reset = 1'b0;
+	reset = #3592 1'b1;
+	# 339;
+	repeat(2)
+	begin
+		reset = 1'b0;
+		reset = #3933 1'b1;
+		# 2733;
+	end
+	reset = 1'b0;
+	reset = #3933 1'b1;
+	reset = #6188 1'b0;
+	reset = #2667 1'b1;
+	reset = #3999 1'b0;
+	reset = #2667 1'b1;
+	reset = #3999 1'b0;
+	reset = #2667 1'b1;
+	reset = #2669 1'b0;
+	reset = #2100 1'b1;
+	reset = #2900 1'b0;
+	reset = #2100 1'b1;
+	reset = #440 1'b0;
+	reset = #70 1'b1;
+	# 1366;
+	repeat(2)
+	begin
+		reset = 1'b0;
+		reset = #1967 1'b1;
+		# 1366;
+	end
+	reset = 1'b0;
+	reset = #1898 1'b1;
+	reset = #263 1'b0;
+	reset = #6100 1'b1;
+	reset = #3637 1'b0;
+	reset = #2467 1'b1;
+	# 2933;
+	repeat(2)
+	begin
+		reset = 1'b0;
+		reset = #3733 1'b1;
+		# 2933;
+	end
+	reset = 1'b0;
+	reset = #1268 1'b1;
+	reset = #1019 1'b0;
+	reset = #10400 1'b1;
+	reset = #8581 1'b0;
+	reset = #731 1'b1;
+	reset = #3000 1'b0;
+	reset = #7000 1'b1;
+	reset = #3000 1'b0;
+	reset = #10061 1'b1;
+	reset = #5000 1'b0;
+	reset = #5000 1'b1;
+	reset = #5000 1'b0;
+	reset = #2397 1'b1;
+	reset = #2200 1'b0;
+	reset = #2800 1'b1;
+	reset = #2200 1'b0;
+	reset = #1611 1'b1;
+	reset = #1302 1'b0;
+	reset = #2200 1'b1;
+	reset = #2800 1'b0;
+	reset = #2200 1'b1;
+	reset = #1498 1'b0;
+	reset = #51 1'b1;
+	reset = #4300 1'b0;
+	reset = #5649 1'b1;
+	# 3447;
+	repeat(2)
+	begin
+		reset = 1'b0;
+		reset = #3200 1'b1;
+		# 3466;
+	end
+	reset = 1'b0;
+	reset = #3200 1'b1;
+	reset = #3004 1'b0;
+	reset = #6200 1'b1;
+	reset = #817 1'b0;
+	reset = #3587 1'b1;
+	# 2066;
+	repeat(2)
+	begin
+		reset = 1'b0;
+		reset = #4600 1'b1;
+		# 2066;
+	end
+	reset = 1'b0;
+	reset = #1015 1'b1;
+	reset = #3258 1'b0;
+	reset = #10200 1'b1;
+	reset = #6542 1'b0;
+	reset = #2510 1'b1;
+	reset = #6400 1'b0;
+	reset = #11709 1'b1;
+	reset = #3300 1'b0;
+	reset = #6700 1'b1;
+	reset = #3300 1'b0;
+	reset = #6509 1'b1;
+	# 1533;
+	repeat(2)
+	begin
+		reset = 1'b0;
+		reset = #1800 1'b1;
+		# 1533;
+	end
+	reset = 1'b0;
+	reset = #5601 1'b1;
+	reset = #3600 1'b0;
+	reset = #6400 1'b1;
+	reset = #3600 1'b0;
+	reset = #2172 1'b1;
+	# 2214;
+	repeat(2)
+	begin
+		reset = 1'b0;
+		reset = #3933 1'b1;
+		# 2733;
+	end
+	reset = 1'b0;
+	reset = #3933 1'b1;
+	reset = #1235 1'b0;
+	reset = #2300 1'b1;
+	reset = #1033 1'b0;
+	reset = #2300 1'b1;
+	reset = #1033 1'b0;
+	reset = #2300 1'b1;
+	reset = #2020 1'b0;
+	reset = #12400 1'b1;
+	reset = #8443 1'b0;
+	reset = #5500 1'b1;
+end 
+
+// set
+initial
+begin
+	set = 1'b0;
+	set = #2755 1'b1;
+	set = #8800 1'b0;
+	set = #8445 1'b1;
+	# 1610;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #3067 1'b1;
+		# 3599;
+	end
+	set = 1'b0;
+	set = #3067 1'b1;
+	set = #3745 1'b0;
+	set = #6100 1'b1;
+	set = #3900 1'b0;
+	set = #6100 1'b1;
+	set = #2552 1'b0;
+	set = #3933 1'b1;
+	set = #2733 1'b0;
+	set = #3933 1'b1;
+	set = #2733 1'b0;
+	set = #3933 1'b1;
+	set = #2329 1'b0;
+	set = #1128 1'b1;
+	# 1433;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #1900 1'b1;
+		# 1433;
+	end
+	set = 1'b0;
+	set = #773 1'b1;
+	set = #618 1'b0;
+	set = #2550 1'b1;
+	set = #2450 1'b0;
+	set = #2550 1'b1;
+	set = #1832 1'b0;
+	set = #3009 1'b1;
+	# 3333;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #3333 1'b1;
+		# 3333;
+	end
+	set = 1'b0;
+	set = #326 1'b1;
+	set = #557 1'b0;
+	set = #2900 1'b1;
+	set = #2100 1'b0;
+	set = #2900 1'b1;
+	set = #1543 1'b0;
+	set = #5453 1'b1;
+	set = #4300 1'b0;
+	set = #5700 1'b1;
+	set = #4300 1'b0;
+	set = #2954 1'b1;
+	# 2799;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #3867 1'b1;
+		# 2799;
+	end
+	set = 1'b0;
+	set = #1162 1'b1;
+	# 850;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #4533 1'b1;
+		# 2133;
+	end
+	set = 1'b0;
+	set = #4533 1'b1;
+	set = #1285 1'b0;
+	set = #4896 1'b1;
+	set = #4700 1'b0;
+	set = #5300 1'b1;
+	set = #4700 1'b0;
+	set = #404 1'b1;
+	set = #1658 1'b0;
+	set = #6400 1'b1;
+	set = #1942 1'b0;
+	set = #1249 1'b1;
+	set = #4000 1'b0;
+	set = #4751 1'b1;
+	# 1852;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #4267 1'b1;
+		# 2399;
+	end
+	set = 1'b0;
+	set = #4267 1'b1;
+	set = #2649 1'b0;
+	set = #3134 1'b1;
+	set = #3532 1'b0;
+	set = #3134 1'b1;
+	set = #3532 1'b0;
+	set = #3134 1'b1;
+	set = #1434 1'b0;
+	set = #1211 1'b1;
+	set = #4400 1'b0;
+	set = #5600 1'b1;
+	set = #4400 1'b0;
+	set = #4433 1'b1;
+	# 2933;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #3733 1'b1;
+		# 2933;
+	end
+	set = 1'b0;
+	set = #5064 1'b1;
+	set = #3200 1'b0;
+	set = #5427 1'b1;
+	# 1598;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #3800 1'b1;
+		# 2866;
+	end
+	set = 1'b0;
+	set = #3800 1'b1;
+	set = #11436 1'b0;
+	set = #8000 1'b1;
+	set = #1834 1'b0;
+	set = #694 1'b1;
+	# 3799;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #2867 1'b1;
+		# 3799;
+	end
+	set = 1'b0;
+	set = #2175 1'b1;
+	set = #846 1'b0;
+	set = #6000 1'b1;
+	set = #4000 1'b0;
+	set = #6000 1'b1;
+	set = #3154 1'b0;
+	set = #6795 1'b1;
+	set = #9000 1'b0;
+	set = #8816 1'b1;
+	set = #5200 1'b0;
+	set = #4800 1'b1;
+	set = #5200 1'b0;
+	set = #1792 1'b1;
+	# 2999;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #3667 1'b1;
+		# 2999;
+	end
+	set = 1'b0;
+	set = #5253 1'b1;
+	# 2266;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #4400 1'b1;
+		# 2266;
+	end
+	set = 1'b0;
+	set = #1215 1'b1;
+	# 1800;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #3200 1'b1;
+		# 3466;
+	end
+	set = 1'b0;
+	set = #3200 1'b1;
+	set = #5647 1'b0;
+	set = #5600 1'b1;
+	set = #4400 1'b0;
+	set = #5600 1'b1;
+	set = #421 1'b0;
+	set = #2430 1'b1;
+	set = #6000 1'b0;
+	set = #1570 1'b1;
+	set = #220 1'b0;
+	set = #5600 1'b1;
+	set = #4400 1'b0;
+	set = #5600 1'b1;
+	set = #4904 1'b0;
+	set = #6700 1'b1;
+	set = #3300 1'b0;
+	set = #6700 1'b1;
+	set = #2576 1'b0;
+	set = #1267 1'b1;
+	# 1066;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #2267 1'b1;
+		# 1066;
+	end
+	set = 1'b0;
+	set = #2782 1'b1;
+	set = #4300 1'b0;
+	set = #5700 1'b1;
+	set = #4300 1'b0;
+	set = #4261 1'b1;
+	# 1633;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #1700 1'b1;
+		# 1633;
+	end
+	set = 1'b0;
+	set = #1359 1'b1;
+	set = #1841 1'b0;
+	set = #6000 1'b1;
+	set = #4000 1'b0;
+	set = #6000 1'b1;
+	set = #2159 1'b0;
+	set = #1235 1'b1;
+	# 1466;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #1867 1'b1;
+		# 1466;
+	end
+	set = 1'b0;
+	set = #1774 1'b1;
+	# 1133;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #2200 1'b1;
+		# 1133;
+	end
+	set = 1'b0;
+	set = #1060 1'b1;
+	set = #573 1'b0;
+	set = #4100 1'b1;
+	set = #5900 1'b0;
+	set = #4100 1'b1;
+	set = #5848 1'b0;
+	set = #2267 1'b1;
+	set = #1066 1'b0;
+	set = #2267 1'b1;
+	set = #1066 1'b0;
+	set = #2267 1'b1;
+	set = #1874 1'b0;
+	set = #5900 1'b1;
+	set = #2772 1'b0;
+	set = #4334 1'b1;
+	set = #3900 1'b0;
+	set = #6100 1'b1;
+	set = #3900 1'b0;
+	set = #1797 1'b1;
+	set = #1850 1'b0;
+	set = #3150 1'b1;
+	set = #1850 1'b0;
+	set = #3173 1'b1;
+	# 1199;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #2134 1'b1;
+		# 1199;
+	end
+	set = 1'b0;
+	set = #4326 1'b1;
+	set = #2450 1'b0;
+	set = #2550 1'b1;
+	set = #2450 1'b0;
+	set = #694 1'b1;
+	# 2066;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #4600 1'b1;
+		# 2066;
+	end
+	set = 1'b0;
+	set = #4213 1'b1;
+	set = #2401 1'b0;
+	set = #2500 1'b1;
+	set = #2500 1'b0;
+	set = #2500 1'b1;
+	set = #1271 1'b0;
+	set = #1734 1'b1;
+	set = #1599 1'b0;
+	set = #1734 1'b1;
+	set = #1599 1'b0;
+	set = #1734 1'b1;
+	set = #428 1'b0;
+	set = #1455 1'b1;
+	# 1666;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #1667 1'b1;
+		# 1666;
+	end
+	set = 1'b0;
+	set = #213 1'b1;
+	set = #897 1'b0;
+	set = #6400 1'b1;
+	set = #3600 1'b0;
+	set = #6400 1'b1;
+	set = #4405 1'b0;
+	set = #6000 1'b1;
+	set = #2298 1'b0;
+	set = #842 1'b1;
+	# 1633;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #1700 1'b1;
+		# 1633;
+	end
+	set = 1'b0;
+	set = #5701 1'b1;
+	set = #3300 1'b0;
+	set = #1858 1'b1;
+	set = #1650 1'b0;
+	set = #5800 1'b1;
+	set = #2550 1'b0;
+	set = #2745 1'b1;
+	# 2133;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #4533 1'b1;
+		# 2133;
+	end
+	set = 1'b0;
+	set = #3944 1'b1;
+	# 1066;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #2267 1'b1;
+		# 1066;
+	end
+	set = 1'b0;
+	set = #114 1'b1;
+	set = #1 1'b0;
+	set = #4600 1'b1;
+	set = #6092 1'b0;
+	set = #2600 1'b1;
+	set = #2400 1'b0;
+	set = #2600 1'b1;
+	set = #4452 1'b0;
+	set = #4700 1'b1;
+	set = #2555 1'b0;
+	set = #3013 1'b1;
+	# 2266;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #4400 1'b1;
+		# 2266;
+	end
+	set = 1'b0;
+	set = #1389 1'b1;
+	set = #2214 1'b0;
+	set = #8000 1'b1;
+	set = #10214 1'b0;
+	set = #3450 1'b1;
+	set = #1550 1'b0;
+	set = #3450 1'b1;
+	set = #1122 1'b0;
+	set = #474 1'b1;
+	set = #3800 1'b0;
+	set = #5982 1'b1;
+	# 3199;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #3467 1'b1;
+		# 3199;
+	end
+	set = 1'b0;
+	set = #4079 1'b1;
+	# 999;
+	repeat(2)
+	begin
+		set = 1'b0;
+		set = #2334 1'b1;
+		# 999;
+	end
+	set = 1'b0;
+end 
+endmodule
+

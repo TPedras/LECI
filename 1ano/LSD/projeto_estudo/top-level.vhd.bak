@@ -1,0 +1,25 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity top is
+  port (
+    CLOCK_50 : in  std_logic;                     -- Clock de 50MHz
+    KEY      : in  std_logic_vector(3 downto 0);  -- KEY[0] usado para reset
+    SW       : in  std_logic_vector(17 downto 0); -- SW[0] ativa displays
+    LEDR     : out std_logic_vector(3 downto 0);  -- LEDs vermelhos
+    LEDG     : out std_logic_vector(8 downto 0);  -- LEDs verdes
+    HEX0     : out std_logic_vector(6 downto 0);  -- Unidades
+    HEX1     : out std_logic_vector(6 downto 0)   -- Dezenas
+  );
+end top;
+
+architecture structural of top is
+  signal clk1hz, clk4hz  : std_logic;                  -- Clocks de 1Hz e 4Hz
+  signal count           : unsigned(3 downto 0);        -- Contador mod 12 (4 bits)
+  signal ledr_sig        : std_logic_vector(3 downto 0); -- LEDs vermelhos
+  signal ledg_sig        : std_logic_vector(8 downto 0); -- LEDs verdes
+  signal hex0_sig        : std_logic_vector(6 downto 0); -- Display HEX0
+  signal hex1_sig        : std_logic_vector(6 downto 0); -- Display HEX1
+begin
+

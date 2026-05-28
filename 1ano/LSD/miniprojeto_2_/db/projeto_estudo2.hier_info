@@ -1,0 +1,349 @@
+|projeto_estudo2
+CLOCK_50 => clock_generator:clock_gen.CLOCK_50
+CLOCK_50 => prog2:prog2_inst.clk
+CLOCK_50 => prog3:prog3_inst.clk
+CLOCK_50 => prog4:prog4_inst.clk
+SW[0] => dec2_4:decoder.SW[0]
+SW[1] => dec2_4:decoder.SW[1]
+HEX0[0] <= dec2_4:decoder.HEX_N[0]
+HEX0[1] <= dec2_4:decoder.HEX_N[1]
+HEX0[2] <= dec2_4:decoder.HEX_N[2]
+HEX0[3] <= dec2_4:decoder.HEX_N[3]
+HEX0[4] <= dec2_4:decoder.HEX_N[4]
+HEX0[5] <= dec2_4:decoder.HEX_N[5]
+HEX0[6] <= dec2_4:decoder.HEX_N[6]
+HEX4[0] <= bin7segdecoder:hex4_decoder.decOut_n[0]
+HEX4[1] <= bin7segdecoder:hex4_decoder.decOut_n[1]
+HEX4[2] <= bin7segdecoder:hex4_decoder.decOut_n[2]
+HEX4[3] <= bin7segdecoder:hex4_decoder.decOut_n[3]
+HEX4[4] <= bin7segdecoder:hex4_decoder.decOut_n[4]
+HEX4[5] <= bin7segdecoder:hex4_decoder.decOut_n[5]
+HEX4[6] <= bin7segdecoder:hex4_decoder.decOut_n[6]
+HEX6[0] <= bin7segdecoder:hex6_decoder.decOut_n[0]
+HEX6[1] <= bin7segdecoder:hex6_decoder.decOut_n[1]
+HEX6[2] <= bin7segdecoder:hex6_decoder.decOut_n[2]
+HEX6[3] <= bin7segdecoder:hex6_decoder.decOut_n[3]
+HEX6[4] <= bin7segdecoder:hex6_decoder.decOut_n[4]
+HEX6[5] <= bin7segdecoder:hex6_decoder.decOut_n[5]
+HEX6[6] <= bin7segdecoder:hex6_decoder.decOut_n[6]
+LEDR[0] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[0] <= LEDG.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[1] <= LEDG.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[2] <= LEDG.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[3] <= LEDG.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|projeto_estudo2|clock_generator:clock_gen
+CLOCK_50 => pulse_gen:gen_1hz.clk
+CLOCK_50 => pulse_gen:gen_2hz.clk
+CLOCK_50 => pulse_gen:gen_0_25hz.clk
+pulse_1hz <= pulse_gen:gen_1hz.pulse
+pulse_2hz <= pulse_gen:gen_2hz.pulse
+pulse_0_25hz <= pulse_gen:gen_0_25hz.pulse
+
+
+|projeto_estudo2|clock_generator:clock_gen|pulse_gen:gen_1hz
+clk => s_cnt[0].CLK
+clk => s_cnt[1].CLK
+clk => s_cnt[2].CLK
+clk => s_cnt[3].CLK
+clk => s_cnt[4].CLK
+clk => s_cnt[5].CLK
+clk => s_cnt[6].CLK
+clk => s_cnt[7].CLK
+clk => s_cnt[8].CLK
+clk => s_cnt[9].CLK
+clk => s_cnt[10].CLK
+clk => s_cnt[11].CLK
+clk => s_cnt[12].CLK
+clk => s_cnt[13].CLK
+clk => s_cnt[14].CLK
+clk => s_cnt[15].CLK
+clk => s_cnt[16].CLK
+clk => s_cnt[17].CLK
+clk => s_cnt[18].CLK
+clk => s_cnt[19].CLK
+clk => s_cnt[20].CLK
+clk => s_cnt[21].CLK
+clk => s_cnt[22].CLK
+clk => s_cnt[23].CLK
+clk => s_cnt[24].CLK
+clk => s_cnt[25].CLK
+clk => pulse~reg0.CLK
+pulse <= pulse~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|projeto_estudo2|clock_generator:clock_gen|pulse_gen:gen_2hz
+clk => s_cnt[0].CLK
+clk => s_cnt[1].CLK
+clk => s_cnt[2].CLK
+clk => s_cnt[3].CLK
+clk => s_cnt[4].CLK
+clk => s_cnt[5].CLK
+clk => s_cnt[6].CLK
+clk => s_cnt[7].CLK
+clk => s_cnt[8].CLK
+clk => s_cnt[9].CLK
+clk => s_cnt[10].CLK
+clk => s_cnt[11].CLK
+clk => s_cnt[12].CLK
+clk => s_cnt[13].CLK
+clk => s_cnt[14].CLK
+clk => s_cnt[15].CLK
+clk => s_cnt[16].CLK
+clk => s_cnt[17].CLK
+clk => s_cnt[18].CLK
+clk => s_cnt[19].CLK
+clk => s_cnt[20].CLK
+clk => s_cnt[21].CLK
+clk => s_cnt[22].CLK
+clk => s_cnt[23].CLK
+clk => s_cnt[24].CLK
+clk => pulse~reg0.CLK
+pulse <= pulse~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|projeto_estudo2|clock_generator:clock_gen|pulse_gen:gen_0_25hz
+clk => s_cnt[0].CLK
+clk => s_cnt[1].CLK
+clk => s_cnt[2].CLK
+clk => s_cnt[3].CLK
+clk => s_cnt[4].CLK
+clk => s_cnt[5].CLK
+clk => s_cnt[6].CLK
+clk => s_cnt[7].CLK
+clk => s_cnt[8].CLK
+clk => s_cnt[9].CLK
+clk => s_cnt[10].CLK
+clk => s_cnt[11].CLK
+clk => s_cnt[12].CLK
+clk => s_cnt[13].CLK
+clk => s_cnt[14].CLK
+clk => s_cnt[15].CLK
+clk => s_cnt[16].CLK
+clk => s_cnt[17].CLK
+clk => s_cnt[18].CLK
+clk => s_cnt[19].CLK
+clk => s_cnt[20].CLK
+clk => s_cnt[21].CLK
+clk => s_cnt[22].CLK
+clk => s_cnt[23].CLK
+clk => s_cnt[24].CLK
+clk => s_cnt[25].CLK
+clk => s_cnt[26].CLK
+clk => s_cnt[27].CLK
+clk => pulse~reg0.CLK
+pulse <= pulse~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|projeto_estudo2|Dec2_4:decoder
+SW[0] => Equal0.IN1
+SW[0] => Equal1.IN1
+SW[0] => Equal2.IN0
+SW[0] => Equal3.IN1
+SW[1] => Equal0.IN0
+SW[1] => Equal1.IN0
+SW[1] => Equal2.IN1
+SW[1] => Equal3.IN0
+PROG[0] <= Equal3.DB_MAX_OUTPUT_PORT_TYPE
+PROG[1] <= PROG.DB_MAX_OUTPUT_PORT_TYPE
+PROG[2] <= PROG.DB_MAX_OUTPUT_PORT_TYPE
+PROG[3] <= PROG.DB_MAX_OUTPUT_PORT_TYPE
+HEX_N[0] <= HEX_N.DB_MAX_OUTPUT_PORT_TYPE
+HEX_N[1] <= <GND>
+HEX_N[2] <= HEX_N.DB_MAX_OUTPUT_PORT_TYPE
+HEX_N[3] <= HEX_N.DB_MAX_OUTPUT_PORT_TYPE
+HEX_N[4] <= HEX_N.DB_MAX_OUTPUT_PORT_TYPE
+HEX_N[5] <= HEX_N.DB_MAX_OUTPUT_PORT_TYPE
+HEX_N[6] <= HEX_N.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|projeto_estudo2|prog1:prog1_inst
+ACTV[0] => Equal0.IN3
+ACTV[0] => Equal1.IN3
+ACTV[1] => Equal0.IN2
+ACTV[1] => Equal1.IN2
+ACTV[2] => Equal0.IN1
+ACTV[2] => Equal1.IN1
+ACTV[3] => Equal0.IN0
+ACTV[3] => Equal1.IN0
+LEDR[0] <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[0] <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[1] <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[2] <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[3] <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|projeto_estudo2|prog2:prog2_inst
+clk => led_state.CLK
+pulse => process_0.IN1
+ACTV[0] => Equal0.IN3
+ACTV[1] => Equal0.IN0
+ACTV[2] => Equal0.IN2
+ACTV[3] => Equal0.IN1
+LEDR[0] <= led_state.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= led_state.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= led_state.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] <= led_state.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[0] <= <GND>
+LEDG[1] <= <GND>
+LEDG[2] <= <GND>
+LEDG[3] <= <GND>
+
+
+|projeto_estudo2|prog3:prog3_inst
+clk => led_state.CLK
+pulse => process_0.IN1
+ACTV[0] => Equal0.IN3
+ACTV[1] => Equal0.IN2
+ACTV[2] => Equal0.IN0
+ACTV[3] => Equal0.IN1
+LEDR[0] <= <GND>
+LEDR[1] <= <GND>
+LEDR[2] <= <GND>
+LEDR[3] <= <GND>
+LEDG[0] <= led_state.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[1] <= led_state.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[2] <= led_state.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[3] <= led_state.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|projeto_estudo2|prog4:prog4_inst
+clk => count_rd[0].CLK
+clk => count_rd[1].CLK
+clk => count_rd[2].CLK
+clk => count_rd[3].CLK
+clk => count_gr[0].CLK
+clk => count_gr[1].CLK
+clk => count_gr[2].CLK
+clk => count_gr[3].CLK
+clk => mode.CLK
+pulse_1hz => count_gr.OUTPUTSELECT
+pulse_1hz => count_gr.OUTPUTSELECT
+pulse_1hz => count_gr.OUTPUTSELECT
+pulse_1hz => count_gr.OUTPUTSELECT
+pulse_2hz => count_rd.OUTPUTSELECT
+pulse_2hz => count_rd.OUTPUTSELECT
+pulse_2hz => count_rd.OUTPUTSELECT
+pulse_2hz => count_rd.OUTPUTSELECT
+pulse_mode => mode.OUTPUTSELECT
+ACTV[0] => Equal0.IN2
+ACTV[1] => Equal0.IN1
+ACTV[2] => Equal0.IN0
+ACTV[3] => Equal0.IN3
+LEDR[0] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[0] <= LEDG.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[1] <= LEDG.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[2] <= LEDG.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[3] <= LEDG.DB_MAX_OUTPUT_PORT_TYPE
+COUNT_R[0] <= count_rd[0].DB_MAX_OUTPUT_PORT_TYPE
+COUNT_R[1] <= count_rd[1].DB_MAX_OUTPUT_PORT_TYPE
+COUNT_R[2] <= count_rd[2].DB_MAX_OUTPUT_PORT_TYPE
+COUNT_R[3] <= count_rd[3].DB_MAX_OUTPUT_PORT_TYPE
+COUNT_G[0] <= count_gr[0].DB_MAX_OUTPUT_PORT_TYPE
+COUNT_G[1] <= count_gr[1].DB_MAX_OUTPUT_PORT_TYPE
+COUNT_G[2] <= count_gr[2].DB_MAX_OUTPUT_PORT_TYPE
+COUNT_G[3] <= count_gr[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|projeto_estudo2|Bin7SegDecoder:hex4_decoder
+binInput[0] => Equal0.IN2
+binInput[0] => Equal1.IN3
+binInput[0] => Equal2.IN1
+binInput[0] => Equal3.IN3
+binInput[0] => Equal4.IN2
+binInput[0] => Equal5.IN3
+binInput[0] => Equal6.IN2
+binInput[0] => Equal7.IN3
+binInput[0] => Equal8.IN3
+binInput[1] => Equal0.IN1
+binInput[1] => Equal1.IN2
+binInput[1] => Equal2.IN3
+binInput[1] => Equal3.IN1
+binInput[1] => Equal4.IN1
+binInput[1] => Equal5.IN2
+binInput[1] => Equal6.IN3
+binInput[1] => Equal7.IN2
+binInput[1] => Equal8.IN2
+binInput[2] => Equal0.IN0
+binInput[2] => Equal1.IN1
+binInput[2] => Equal2.IN2
+binInput[2] => Equal3.IN2
+binInput[2] => Equal4.IN3
+binInput[2] => Equal5.IN1
+binInput[2] => Equal6.IN1
+binInput[2] => Equal7.IN1
+binInput[2] => Equal8.IN1
+binInput[3] => Equal0.IN3
+binInput[3] => Equal1.IN0
+binInput[3] => Equal2.IN0
+binInput[3] => Equal3.IN0
+binInput[3] => Equal4.IN0
+binInput[3] => Equal5.IN0
+binInput[3] => Equal6.IN0
+binInput[3] => Equal7.IN0
+binInput[3] => Equal8.IN0
+decOut_n[0] <= decOut_n.DB_MAX_OUTPUT_PORT_TYPE
+decOut_n[1] <= decOut_n.DB_MAX_OUTPUT_PORT_TYPE
+decOut_n[2] <= decOut_n.DB_MAX_OUTPUT_PORT_TYPE
+decOut_n[3] <= decOut_n.DB_MAX_OUTPUT_PORT_TYPE
+decOut_n[4] <= decOut_n.DB_MAX_OUTPUT_PORT_TYPE
+decOut_n[5] <= decOut_n.DB_MAX_OUTPUT_PORT_TYPE
+decOut_n[6] <= decOut_n.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|projeto_estudo2|Bin7SegDecoder:hex6_decoder
+binInput[0] => Equal0.IN2
+binInput[0] => Equal1.IN3
+binInput[0] => Equal2.IN1
+binInput[0] => Equal3.IN3
+binInput[0] => Equal4.IN2
+binInput[0] => Equal5.IN3
+binInput[0] => Equal6.IN2
+binInput[0] => Equal7.IN3
+binInput[0] => Equal8.IN3
+binInput[1] => Equal0.IN1
+binInput[1] => Equal1.IN2
+binInput[1] => Equal2.IN3
+binInput[1] => Equal3.IN1
+binInput[1] => Equal4.IN1
+binInput[1] => Equal5.IN2
+binInput[1] => Equal6.IN3
+binInput[1] => Equal7.IN2
+binInput[1] => Equal8.IN2
+binInput[2] => Equal0.IN0
+binInput[2] => Equal1.IN1
+binInput[2] => Equal2.IN2
+binInput[2] => Equal3.IN2
+binInput[2] => Equal4.IN3
+binInput[2] => Equal5.IN1
+binInput[2] => Equal6.IN1
+binInput[2] => Equal7.IN1
+binInput[2] => Equal8.IN1
+binInput[3] => Equal0.IN3
+binInput[3] => Equal1.IN0
+binInput[3] => Equal2.IN0
+binInput[3] => Equal3.IN0
+binInput[3] => Equal4.IN0
+binInput[3] => Equal5.IN0
+binInput[3] => Equal6.IN0
+binInput[3] => Equal7.IN0
+binInput[3] => Equal8.IN0
+decOut_n[0] <= decOut_n.DB_MAX_OUTPUT_PORT_TYPE
+decOut_n[1] <= decOut_n.DB_MAX_OUTPUT_PORT_TYPE
+decOut_n[2] <= decOut_n.DB_MAX_OUTPUT_PORT_TYPE
+decOut_n[3] <= decOut_n.DB_MAX_OUTPUT_PORT_TYPE
+decOut_n[4] <= decOut_n.DB_MAX_OUTPUT_PORT_TYPE
+decOut_n[5] <= decOut_n.DB_MAX_OUTPUT_PORT_TYPE
+decOut_n[6] <= decOut_n.DB_MAX_OUTPUT_PORT_TYPE
+
+

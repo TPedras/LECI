@@ -1,0 +1,32 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity prog2 is
+  port (
+    clk    : in  std_logic;
+    pulse  : in  std_logic;  -- 2 Hz
+    ACTV   : in  std_logic_vector(3 downto 0);
+    LEDR   : out std_logic_vector(3 downto 0);
+    LEDG   : out std_logic_vector(3 downto 0)
+  );
+end prog2;
+
+architecture behavioral of prog2 is
+  signal led_state : std_logic := '0';
+begin
+  LEDG <= (others => '0');
+
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      if ACTV = "0010" and pulse = '1' then
+        led_state <= not led_state;
+      else
+        led_state <= '0';
+      end if;
+    end if;
+  end process;
+
+  LEDR <= (others => led_state);
+end behavioral;

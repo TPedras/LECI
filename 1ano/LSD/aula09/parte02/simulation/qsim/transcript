@@ -1,0 +1,36 @@
+# do TrafficLights.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 21:27:40 on May 31,2025
+# vcom -work work TrafficLights.vho 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package dffeas_pack
+# -- Loading package altera_primitives_components
+# -- Loading package cycloneive_atom_pack
+# -- Loading package cycloneive_components
+# -- Compiling entity TrafficLightsTop
+# -- Compiling architecture structure of TrafficLightsTop
+# End time: 21:27:40 on May 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 21:27:40 on May 31,2025
+# vcom -work work Waveform.vwf.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity TrafficLightsTop_vhd_vec_tst
+# -- Compiling architecture TrafficLightsTop_arch of TrafficLightsTop_vhd_vec_tst
+# ** Error: Waveform.vwf.vht(74): Enumeration literal '0' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Note: Waveform.vwf.vht(74): (vcom-1499) Aggregate with a single element association must use named association.
+# ** Error: Waveform.vwf.vht(92): Enumeration literal '0' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Note: Waveform.vwf.vht(92): (vcom-1499) Aggregate with a single element association must use named association.
+# ** Note: Waveform.vwf.vht(102): VHDL Compiler exiting
+# End time: 21:27:40 on May 31,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# ** Error: /opt/intelFPGA/23.1/questa_fse/linux_x86_64/vcom failed.
+# Executing ONERROR command at macro ./TrafficLights.do line 4

@@ -1,0 +1,40 @@
+# do semaforos_top.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 06:12:51 on Jun 03,2025
+# vcom -work work semaforos_top.vho 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package dffeas_pack
+# -- Loading package altera_primitives_components
+# -- Loading package cycloneive_atom_pack
+# -- Loading package cycloneive_components
+# -- Compiling entity semaforos_top
+# -- Compiling architecture structure of semaforos_top
+# End time: 06:12:52 on Jun 03,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 06:12:52 on Jun 03,2025
+# vcom -work work Waveform.vwf.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity semaforos_top_vhd_vec_tst
+# -- Compiling architecture semaforos_top_arch of semaforos_top_vhd_vec_tst
+# ** Error: Waveform.vwf.vht(92): Enumeration literal '0' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Note: Waveform.vwf.vht(92): (vcom-1499) Aggregate with a single element association must use named association.
+# ** Error: Waveform.vwf.vht(94): Enumeration literal '1' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Note: Waveform.vwf.vht(94): (vcom-1499) Aggregate with a single element association must use named association.
+# ** Error: Waveform.vwf.vht(96): Enumeration literal '0' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Note: Waveform.vwf.vht(96): (vcom-1499) Aggregate with a single element association must use named association.
+# ** Error: Waveform.vwf.vht(114): Enumeration literal '0' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Note: Waveform.vwf.vht(114): (vcom-1499) Aggregate with a single element association must use named association.
+# ** Note: Waveform.vwf.vht(128): VHDL Compiler exiting
+# End time: 06:12:52 on Jun 03,2025, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 0
+# ** Error: /opt/intelFPGA/23.1/questa_fse/linux_x86_64/vcom failed.
+# Executing ONERROR command at macro ./semaforos_top.do line 4

@@ -1,0 +1,70 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity top is
+  port (
+    CLOCK_50 : in  std_logic;
+    KEY      : in  std_logic_vector(3 downto 0);  -- KEY[0] usado para reset
+    SW       : in  std_logic_vector(17 downto 0); -- SW[0] ativa displays
+    LEDR     : out std_logic_vector(17 downto 0); -- LEDs vermelhos
+    LEDG     : out std_logic_vector(8 downto 0);  -- LEDs verdes
+    HEX0     : out std_logic_vector(6 downto 0);  -- Unidades
+    HEX1     : out std_logic_vector(6 downto 0)   -- Dezenas
+  );
+end top;
+
+architecture structural of top is
+  signal clk1hz, clk4hz : std_logic;
+  signal count           : unsigned(3 downto 0);
+  signal ledr_sig        : std_logic_vector(3 downto 0);
+  signal ledg_sig        : std_logic_vector(8 downto 0);
+  signal hex0_sig        : std_logic_vector(6 downto 0);
+  signal hex1_sig        : std_logic_vector(6 downto 0);
+begin
+
+  -- Instância do divisor de clock
+  clkdiv_inst : entity work.clk_divider_dual
+    port map (
+      clk50   => CLOCK_50,
+      rst     => not KEY(0),  -- reset ativo a nível alto
+      clk1hz  => clk1hz,
+      clk4hz  => clk4hz
+    );
+
+  -- Instância do contador mod 12
+  counter_inst : entity work.mod12_counter
+    port map (
+      clk   => clk1hz,
+      rst   => not KEY(0),
+      count => count
+    );
+
+  -- Instância do controlador de LEDs
+  leds_inst : entity work.led_controller
+    port map (
+      count  => count,
+      clk4hz => clk4hz,
+      ledr   => ledr_sig,
+      ledg   => ledg_sig
+    );
+
+  -- Instância do conversor para 7 segmentos
+  display_inst : entity work.bin_to_7seg_display
+    port map (
+      count  => count,
+      enable => SW(0),
+      hex0   => hex0_sig,
+      hex1   => hex1_sig
+    );
+
+  -- Atribuições às saídas reais
+  LEDR(3 downto 0) <= ledr_sig;
+  LEDR(17 downto 4) <= (others => '0');  -- os restantes ficam a 0
+
+  LEDG <= ledg_sig;
+
+  HEX0 <= hex0_sig;
+  HEX1 <= hex1_sig;
+
+end structural;

@@ -1,0 +1,135 @@
+m255
+K4
+z2
+!s11e vcom 2023.3 2023.07, Jul 17 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/pedrosa/Documents/LSD/Proj2/simulation/qsim
+Ehard_block
+Z1 w1748958222
+Z2 DPx4 ieee 16 vital_primitives 0 22 Y]H?Y_]z4@VoaWAGJ=36m1
+Z3 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 JFD354ZMY?;ZG1UUQ_P^@1
+Z4 DPx4 ieee 12 vital_timing 0 22 6STbz=m1W[80IE06h_el^0
+Z5 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
+Z6 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
+Z7 DPx10 cycloneive 21 cycloneive_components 0 22 :CA=Yg0R^TdJ3>^OGfeMR2
+!i122 0
+R0
+Z8 8maquinas_vendas.vho
+Z9 Fmaquinas_vendas.vho
+l0
+L35 1
+VO;cUSklm4Sig<`__bK=J@0
+!s100 0CTYib@dc:ObIVR9DRSK?2
+Z10 OL;C;2023.3;77
+32
+Z11 !s110 1748958222
+!i10b 1
+Z12 !s108 1748958222.000000
+Z13 !s90 -work|work|maquinas_vendas.vho|
+Z14 !s107 maquinas_vendas.vho|
+!i113 0
+Z15 o-work work
+Z16 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 10 hard_block 0 22 O;cUSklm4Sig<`__bK=J@0
+!i122 0
+l65
+L51 20
+VGLY:g5RDEe^dIV`12>FYD3
+!s100 6LcB1AebN6j_bAmfc?Z:_0
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 0
+R15
+R16
+Emaquinas_vendas
+R1
+R3
+R7
+R2
+Z17 DPx6 altera 11 dffeas_pack 0 22 mB4IFnUT3:DoZN@NS]Gzg0
+R4
+R5
+R6
+Z18 DPx6 altera 28 altera_primitives_components 0 22 >1_OP3SHemAi5ZBLF?7g43
+!i122 0
+R0
+R8
+R9
+l0
+L80 1
+V9_KQRVh]?Z;>Fi]?471fG3
+!s100 A0JUEH`]O>efel>zFdLo;0
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 0
+R15
+R16
+Astructure
+R3
+R7
+R2
+R17
+R4
+R5
+R6
+R18
+DEx4 work 15 maquinas_vendas 0 22 9_KQRVh]?Z;>Fi]?471fG3
+!i122 0
+l423
+L132 4513
+V<TMCmaW?L:eIS]E5h@[BJ3
+!s100 E9J63XoiM`OQQ=3YbiWBi3
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 0
+R15
+R16
+Emaquinas_vendas_vhd_vec_tst
+w1748958221
+R5
+R6
+!i122 1
+R0
+8Waveform.vwf.vht
+FWaveform.vwf.vht
+l0
+L32 1
+V5ROkYhA3XNoQKI=FE=2KH0
+!s100 O6>NWNDUP1=PG9H<6VMdS0
+R10
+32
+!s110 1748958223
+!i10b 1
+R12
+!s90 -work|work|Waveform.vwf.vht|
+!s107 Waveform.vwf.vht|
+!i113 0
+R15
+R16

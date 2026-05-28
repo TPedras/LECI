@@ -1,0 +1,18 @@
+|SeqDetFSM
+reset => PS.OUTPUTSELECT
+reset => PS.OUTPUTSELECT
+reset => PS.OUTPUTSELECT
+reset => PS.OUTPUTSELECT
+reset => PS.OUTPUTSELECT
+clk => PS~1.DATAIN
+xIn => Selector0.IN4
+xIn => NS.B.DATAA
+xIn => NS.E.DATAB
+xIn => Selector0.IN1
+xIn => Selector0.IN2
+xIn => Selector0.IN3
+xIn => NS.C.DATAB
+xIn => NS.D.DATAB
+zOut <= zOut.DB_MAX_OUTPUT_PORT_TYPE
+
+

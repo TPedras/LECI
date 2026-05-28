@@ -1,0 +1,187 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11f MIXED_VERSIONS
+!s11e vcom 2023.3 2023.07, Jul 17 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/home/pedrosa/Documents/LSD/Aula2/simulation/qsim
+T_opt
+Z2 !s110 1739887771
+VWcS;e1@c=7?QcjSc7B?@h1
+04 20 4 work LogicTop_vlg_vec_tst fast 0
+=1-f8b54d96c7ab-67b4949b-511d1-1deb5
+R0
+!s12b OEM100
+!s124 OEM10U3 
+o-quiet -auto_acc_if_foreign -work work -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver +acc
+Z3 tCvgOpt 0
+n@_opt
+OL;O;2023.3;77
+vhard_block
+Z4 2LogicTop.vo
+R2
+!i10b 1
+!s100 lH;gilYG[Zn1OHhNYMLcJ2
+INVlHWmEk8om]35?YT;Emc0
+R1
+Z5 w1739887770
+Z6 8LogicTop.vo
+Z7 FLogicTop.vo
+!i122 4
+L0 241 34
+Z8 VDg1SIo80bB@j0V0VzS_@n1
+Z9 OL;L;2023.3;77
+r1
+!s85 0
+31
+Z10 !s108 1739887771.000000
+Z11 !s107 LogicTop.vo|
+Z12 !s90 -work|work|LogicTop.vo|
+!i113 0
+Z13 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+vLogicTop
+R4
+R2
+!i10b 1
+!s100 0`TVSQb_WzM@mP5e0n`c83
+I^mdCBY:?`QCmc]B@:jETh1
+R1
+R5
+R6
+R7
+!i122 4
+L0 32 208
+R8
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+R3
+n@logic@top
+Elogictop
+Z14 w1739887591
+Z15 DPx4 ieee 16 vital_primitives 0 22 Y]H?Y_]z4@VoaWAGJ=36m1
+Z16 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 JFD354ZMY?;ZG1UUQ_P^@1
+Z17 DPx4 ieee 12 vital_timing 0 22 6STbz=m1W[80IE06h_el^0
+Z18 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
+Z19 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
+Z20 DPx10 cycloneive 21 cycloneive_components 0 22 :CA=Yg0R^TdJ3>^OGfeMR2
+!i122 0
+R1
+Z21 8LogicTop.vho
+Z22 FLogicTop.vho
+l0
+L78 1
+VzX:HFbcGTOhn6SgNWHH473
+!s100 Z7O0`D655L6Dd4NoM8EIT3
+Z23 OL;C;2023.3;77
+32
+Z24 !s110 1739887592
+!i10b 1
+Z25 !s108 1739887591.000000
+Z26 !s90 -work|work|LogicTop.vho|
+Z27 !s107 LogicTop.vho|
+!i113 0
+Z28 o-work work
+Z29 tExplicit 1 CvgOpt 0
+Astructure
+R15
+R16
+R17
+R18
+R19
+R20
+DEx4 work 8 logictop 0 22 zX:HFbcGTOhn6SgNWHH473
+!i122 0
+l130
+L96 201
+V4:8BbWG@S10N8aF2_AIZ[3
+!s100 fa<?UONG3aDk7AUigoEGZ1
+R23
+32
+R24
+!i10b 1
+R25
+R26
+R27
+!i113 0
+R28
+R29
+Elogictop_vhd_vec_tst
+Z30 w1739887590
+R18
+R19
+!i122 1
+R1
+Z31 8Waveform.vwf.vht
+Z32 FWaveform.vwf.vht
+l0
+L32 1
+V2D>5E:Bz]gI45ZDZURH;P0
+!s100 hIYdMcNAFi1<FF49QR=K^0
+R23
+32
+R24
+!i10b 1
+Z33 !s108 1739887592.000000
+Z34 !s90 -work|work|Waveform.vwf.vht|
+Z35 !s107 Waveform.vwf.vht|
+!i113 0
+R28
+R29
+Alogictop_arch
+R18
+R19
+DEx4 work 20 logictop_vhd_vec_tst 0 22 2D>5E:Bz]gI45ZDZURH;P0
+!i122 1
+l45
+L34 31
+VfGGRLX;9VlzUjC3Lh^:4:3
+!s100 BnB6B:a]5FQ1ZWEb0?mSd2
+R23
+32
+R24
+!i10b 1
+R33
+R34
+R35
+!i113 0
+R28
+R29
+vLogicTop_vlg_vec_tst
+2Waveform.vwf.vt
+R2
+!i10b 1
+!s100 ZWo=a]FQ>8FA6^^]h1n@=0
+Iz;k=m4[f;PK5cJ7T86mbY0
+R1
+w1739887769
+8Waveform.vwf.vt
+FWaveform.vwf.vt
+!i122 5
+L0 30 28
+R8
+R9
+r1
+!s85 0
+31
+R10
+!s107 Waveform.vwf.vt|
+!s90 -work|work|Waveform.vwf.vt|
+!i113 0
+R13
+R3
+n@logic@top_vlg_vec_tst

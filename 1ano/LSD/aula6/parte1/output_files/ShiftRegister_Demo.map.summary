@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Apr  3 21:21:18 2025
+Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Revision Name : ShiftRegister_Demo
+Top-level Entity Name : shiftregister_demo
+Family : Cyclone IV E
+Total logic elements : 51
+    Total combinational functions : 43
+    Dedicated logic registers : 35
+Total registers : 35
+Total pins : 10
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Jun  3 15:56:04 2025
+Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Revision Name : maquinas_vendas
+Top-level Entity Name : maquinas_vendas
+Family : Cyclone IV E
+Total logic elements : 148
+    Total combinational functions : 143
+    Dedicated logic registers : 64
+Total registers : 64
+Total pins : 34
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

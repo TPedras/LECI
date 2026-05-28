@@ -1,0 +1,130 @@
+Flow report for TrafficLights
+Sat May 31 21:27:40 2025
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Flow Summary                                                                        ;
++------------------------------------+------------------------------------------------+
+; Flow Status                        ; Successful - Sat May 31 21:27:40 2025          ;
+; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
+; Revision Name                      ; TrafficLights                                  ;
+; Top-level Entity Name              ; TrafficLightsTop                               ;
+; Family                             ; Cyclone IV E                                   ;
+; Device                             ; EP4CE115F29C7                                  ;
+; Timing Models                      ; Final                                          ;
+; Total logic elements               ; 112                                            ;
+;     Total combinational functions  ; 111                                            ;
+;     Dedicated logic registers      ; 50                                             ;
+; Total registers                    ; 50                                             ;
+; Total pins                         ; 21                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 05/20/2025 15:05:16 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; TrafficLights       ;
++-------------------+---------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                 ;
++-------------------------------------+----------------------------------------+---------------+------------------+----------------+
+; Assignment Name                     ; Value                                  ; Default Value ; Entity Name      ; Section Id     ;
++-------------------------------------+----------------------------------------+---------------+------------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 273457574496171.174774991625380        ; --            ; --               ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                   ; --            ; --               ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; Questa Intel FPGA (VHDL)               ; <None>        ; --               ; --             ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --               ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --               ; --             ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --               ; --             ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; TrafficLightsTop ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; TrafficLightsTop ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; TrafficLightsTop ; Top            ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --               ; --             ;
+; TOP_LEVEL_ENTITY                    ; TrafficLightsTop                       ; TrafficLights ; --               ; --             ;
++-------------------------------------+----------------------------------------+---------------+------------------+----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 490 MB              ; 00:00:26                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 584 MB              ; 00:00:00                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 599 MB              ; 00:00:00                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 587 MB              ; 00:00:00                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 599 MB              ; 00:00:00                           ;
+; Total                ; 00:00:09     ; --                      ; --                  ; 00:00:26                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                                    ;
++----------------------+------------------+--------------------+--------------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name            ; OS Version         ; Processor type ;
++----------------------+------------------+--------------------+--------------------+----------------+
+; Analysis & Synthesis ; lindo            ; \S{PRETTY_NAME} \r ; \S{PRETTY_NAME} \r ; x86_64         ;
+; EDA Netlist Writer   ; lindo            ; \S{PRETTY_NAME} \r ; \S{PRETTY_NAME} \r ; x86_64         ;
+; EDA Netlist Writer   ; lindo            ; \S{PRETTY_NAME} \r ; \S{PRETTY_NAME} \r ; x86_64         ;
+; EDA Netlist Writer   ; lindo            ; \S{PRETTY_NAME} \r ; \S{PRETTY_NAME} \r ; x86_64         ;
+; EDA Netlist Writer   ; lindo            ; \S{PRETTY_NAME} \r ; \S{PRETTY_NAME} \r ; x86_64         ;
++----------------------+------------------+--------------------+--------------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off TrafficLights -c TrafficLights
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off TrafficLights -c TrafficLights --vector_source=/home/pedrosa/Documents/LSD/aula09/parte02/Waveform.vwf --testbench_file=/home/pedrosa/Documents/LSD/aula09/parte02/simulation/qsim/Waveform.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=/home/pedrosa/Documents/LSD/aula09/parte02/simulation/qsim/ TrafficLights -c TrafficLights
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off TrafficLights -c TrafficLights --vector_source=/home/pedrosa/Documents/LSD/aula09/parte02/Waveform.vwf --testbench_file=/home/pedrosa/Documents/LSD/aula09/parte02/simulation/qsim/Waveform.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=/home/pedrosa/Documents/LSD/aula09/parte02/simulation/qsim/ TrafficLights -c TrafficLights
+
+
+

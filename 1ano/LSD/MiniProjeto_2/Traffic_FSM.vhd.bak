@@ -1,0 +1,94 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity Traffic_FSM is
+    Port (
+        clk                : in  STD_LOGIC;
+        rst                : in  STD_LOGIC;
+        en                 : in  STD_LOGIC;
+        modo_intermitente  : in  STD_LOGIC;
+        clk_blink          : in  STD_LOGIC;
+        S1, S2, S3         : out STD_LOGIC_VECTOR(2 downto 0)
+    );
+end Traffic_FSM;
+
+architecture Behavioral of Traffic_FSM is
+
+    type State_Type is (S1_S2_GREEN, S1_S2_YELLOW, S3_GREEN, S3_YELLOW);
+    signal state      : State_Type := S1_S2_GREEN;
+    signal timer      : integer range 0 to 15 := 0;
+    signal blink      : STD_LOGIC := '0';
+
+begin
+
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            if rst = '1' then
+                state <= S1_S2_GREEN;
+                timer <= 9;
+            elsif modo_intermitente = '1' then
+						  S1 <= "0" & clk_blink & "0";
+						  S2 <= "0" & clk_blink & "0";
+						  S3 <= "0" & clk_blink & "1";
+            elsif en = '1' then
+                if timer = 0 then
+                    case state is
+                        when S1_S2_GREEN =>
+                            state <= S1_S2_YELLOW;
+                            timer <= 3;
+                        when S1_S2_YELLOW =>
+                            state <= S3_GREEN;
+                            timer <= 6;
+                        when S3_GREEN =>
+                            state <= S3_YELLOW;
+                            timer <= 3;
+                        when S3_YELLOW =>
+                            state <= S1_S2_GREEN;
+                            timer <= 9;
+                    end case;
+                else
+                    timer <= timer - 1;
+                end if;
+            end if;
+        end if;
+    end process;
+
+    -- Saídas dos semáforos
+    process(state, modo_intermitente, blink)
+    begin
+        if modo_intermitente = '1' then
+            -- Modo intermitente: S1 e S2 amarelo a piscar, S3 vermelho fixo
+            if blink = '1' then
+                S1 <= "010";  -- amarelo
+                S2 <= "010";
+            else
+                S1 <= "000";
+                S2 <= "000";
+            end if;
+            S3 <= "001";  -- vermelho
+        else
+            -- Modo normal de funcionamento
+            case state is
+                when S1_S2_GREEN =>
+                    S1 <= "100";  -- verde
+                    S2 <= "100";
+                    S3 <= "001";  -- vermelho
+                when S1_S2_YELLOW =>
+                    S1 <= "010";  -- amarelo
+                    S2 <= "010";
+                    S3 <= "001";  -- vermelho
+                when S3_GREEN =>
+                    S1 <= "001";  -- vermelho
+                    S2 <= "001";
+                    S3 <= "100";  -- verde
+                when S3_YELLOW =>
+                    S1 <= "001";
+                    S2 <= "001";
+                    S3 <= "010";  -- amarelo
+            end case;
+        end if;
+    end process;
+
+end Behavioral;

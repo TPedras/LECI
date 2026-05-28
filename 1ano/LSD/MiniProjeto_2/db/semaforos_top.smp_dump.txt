@@ -1,0 +1,7 @@
+
+State Machine - |semaforos_top|Traffic_FSM:TrafficFSM|state
+Name state.S3_YELLOW state.S3_GREEN state.S1_S2_YELLOW state.S1_S2_GREEN 
+state.S1_S2_GREEN 0 0 0 0 
+state.S1_S2_YELLOW 0 0 1 1 
+state.S3_GREEN 0 1 0 1 
+state.S3_YELLOW 1 0 0 1 

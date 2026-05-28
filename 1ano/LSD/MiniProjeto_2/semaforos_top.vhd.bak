@@ -1,0 +1,10 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
+
+entity semaforos_top is
+	port(CLOCK_50	: in  std_logic;
+		  KEY			: in  std_logic_vector(0 downto 0);
+		  SW			: in  std_logic_vector(0 downto 0);
+		  LEDR		: out std_logic_vector(12 downto 0));
+end semaforos_top;

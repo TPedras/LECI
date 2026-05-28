@@ -1,0 +1,32 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity mod12_counter is
+  port (
+    clk     : in std_logic;
+    rst     : in std_logic;
+    count   : out unsigned(3 downto 0)  -- 4 bits: 0 to 11
+  );
+end mod12_counter;
+
+architecture behavioral of mod12_counter is
+  signal s_count : unsigned(3 downto 0) := (others => '0');
+begin
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      if rst = '1' then
+        s_count <= (others => '0');
+      else
+        if s_count = 11 then
+          s_count <= (others => '0');
+        else
+          s_count <= s_count + 1;
+        end if;
+      end if;
+    end if;
+  end process;
+
+  count <= s_count;
+end behavioral;
