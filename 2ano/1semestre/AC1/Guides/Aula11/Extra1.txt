@@ -1,0 +1,66 @@
+# Tabela de Alinhamento:
+#
+# Align | SIZE | Offset
+#   1   |  10  |   0
+#   8   |  8   |   10->16
+#   4   |   8  |   24
+#   1   |   1  |   32
+#   4   |   4  |   33->36
+#-------|------|----------
+#   8   |  40  |-------
+
+	.eqv print_float, 2
+	
+	.data
+uvw:	.asciiz "St1"
+	.space 12
+	.double 3.141592653589
+	.word 291, 756
+	.byte 'X'
+	.space 3
+	.float 1.983
+	
+	.text
+	.globl main
+	
+	# Mapa de Registos(f1):
+	#	$t0: 	s1;
+	#	$f0: 	s1.g
+	#	$t1: 	s1.a2[1];
+	#	$f2:	s1.k: 
+f1:					# float f1(void) {
+	la	$t0, uvw		#	$t0 = s1;
+					#
+	l.d	$f0, 16($t0)		#	$f0 = s1.g;
+	lw	$t1, 24($t0)		#	$t0 = s1.a2[1];
+	l.s	$f2, 36($t0)		#	$f2 = s1.k;
+					#
+	mtc1	$t1, $f4		#	
+	cvt.d.w	$f4, $f4		#	$f4 = (double) s1.a2[1];
+					#
+	cvt.d.s	$f2, $f2		#	$f2 = (double) s1.k;
+					#
+	mul.d	$f0, $f0, $f4		#	$f0 = s1.g * $f4;
+	div.d 	$f0, $f0, $f2		#	$f0 = $f0 / $f4;
+					#
+	cvt.s.d	$f0, $f0,		#	$f0 = (float) $f0;
+	jr	$ra			# } Fim da subrotina f1;
+					#
+					#
+					#
+	# Mapa de Registos(main):
+	#	$f12: f1;
+main:					#
+	addiu 	$sp, $sp, -4		# Reservar espalo na stack;
+	sw	$ra, 0($sp)		# Salvaguardar o valor de $ra
+					#
+	jal	f1			# $f0 = f1();
+	mov.s	$f12, $f0		# $f12 = $f0;
+					#
+	li	$v0, print_float	#
+	syscall				#
+					#
+	lw	$ra, 0($sp)		# Repor o valor de $ra
+	addiu 	$sp, $sp, 4		# Libertar espalo na stack;
+					#
+	jr	$ra			# Fim do Programa;

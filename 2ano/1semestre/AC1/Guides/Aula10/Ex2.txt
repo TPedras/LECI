@@ -1,0 +1,85 @@
+
+	.eqv print_string, 4
+	.eqv read_double, 7
+	.eqv print_double, 3
+	
+	.data
+str1:	.asciiz "Digite um valor: "
+str2:	.asciiz "\nResultado: "
+k1:	.double 1.0
+k2:	.double 0.0
+k3:	.double 0.5
+
+	.text
+	.globl main
+	
+	# Mapa de Registos(sqrt):
+	#	$f12: 	val;
+	#	$t0:	i;
+	#	$f0:	xn;
+	#	$f2:	aux;
+sqrt:					# double aqrt(double val) {
+	la	$t0, k1			#
+	l.d	$f0, 0($t0)		#	xn = 1.0;
+	la	$t0, k2			#
+	l.d	$f4, 0($t0)		#	$f4 = 0.0;
+	la	$t0, k3			#
+	l.d	$f6, 0($t0)		#	$f6 = 0.5;
+					#
+	li	$t0, 0			#	i = 0;
+if1:	c.le.d	$f12, $f4		#
+	bc1t	else1			#	if (val > 0.0) {
+					#
+do1:					#		do {
+	mov.d	$f2, $f0		#			aux = xn;
+					#
+	div.d	$f8, $f12, $f0		#			$f8 = val/xn;
+	add.d	$f8, $f0, $f8		#			$f8 = xn + $f8;
+	mul.d	$f0, $f6, $f8		#			xn = 0.5 * $f8;
+					#
+while1:	c.eq.d	$f2, $f0		#
+	bc1t	enddo1			#		} while ((aux != xn) &&
+	bge	$t0, 25, enddo1		#			(++i < 25));
+	addi	$t0, $t0, 1		#			i++;
+	j	do1			#
+enddo1:					#
+					#
+	j	endif1			#	}
+else1:					#	else {
+	mov.d	$f0, $f4		#		xn = 0.0;
+endif1:					#	}
+	jr	$ra			# } Fim da sub-rotina sqrt;
+					#
+					#
+					#
+	# Mapa de Registos(main):
+	#	$f12:	val;
+	#	$f0:	res;
+main:					#
+	addiu	$sp, $sp, -4		# Reservar espaço na stack;
+	sw	$ra, 0($sp)		# Salvaguradar o valor de $ra;
+					#
+	la	$a0, str1		#
+	li	$v0, print_string	#
+	syscall				# print_string(str1);
+					#
+	li	$v0, read_double	#
+	syscall				# $f0 = read_double();
+	mov.d	$f12, $f0		# val = $f0;
+					#
+	jal	sqrt			# $f0 = sqrt(val);
+					#
+	la	$a0, str2		#
+	li	$v0, print_string	#
+	syscall				# print_string(str2);
+					#
+	mov.d 	$f12, $f0		#
+	li	$v0, print_double	#
+	syscall				# print_float();
+					#
+	lw	$ra, 0($sp)		# Repor o valor de $ra;
+	addiu	$sp, $sp, 4		# Libertar espaço na stack;
+					#
+	jr	$ra			# Fim do programa;
+	
+						

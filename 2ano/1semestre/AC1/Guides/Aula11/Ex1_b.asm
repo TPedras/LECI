@@ -1,0 +1,136 @@
+# Tabela de alinhamento:
+#
+# Align	| SIZE	| Offset
+#   4	|   4	|   0
+#   1   |   18  |   4
+#   1   |   15  |   22
+#   4   |   4   |   37->40
+#-------|-------|---------
+#   4   |   44  |---------
+
+	.eqv print_string, 4
+	.eqv read_string, 8
+	.eqv print_char, 11
+	.eqv read_float, 6
+	.eqv print_float, 2
+	.eqv print_int, 1
+	.eqv read_int, 5
+	
+	.data
+str1:	.asciiz "N. Mec: "
+str2:	.asciiz "Primeiro nome: "
+str3:	.asciiz "Ultimo nome: "
+str4:	.asciiz "Nota: "
+str5:	.asciiz "\nN. Mec: "
+str6:	.asciiz "\nNome: "
+str7:	.asciiz "\nNota: "
+	.align 2
+std:	.space 44
+
+	.text
+	.globl main
+	
+	# Mapa de Registos:
+	#	$t0: std;
+main:					#
+	la	$t0, std		# $t0 = &std[0];
+					#
+	la	$a0, str1		#
+	li	$v0, print_string	#
+	syscall				# print_string(str1);
+					#
+	li	$v0, read_int		#
+	syscall				# $v0 = read_int();
+	sw	$v0, 0($t0)		# std[0] = std.id_number;
+					#
+	la	$a0, str2		#
+	li	$v0, print_string	#
+	syscall				# print_string(str2);
+					#
+	li	$v0, read_string	#
+	addiu	$a0, $t0, 4		#
+	li	$a1, 18			#
+	syscall				# std.first_name = read_string();
+					#
+	la	$a0, str3		#
+	li	$v0, print_string	#
+	syscall				# print_string(str3);	
+					#
+	li	$v0, read_string	#
+	addiu	$a0, $t0, 22		# $a0 = std + 22;
+	li	$a1, 15			#
+	syscall				# std.last_name = read_string();
+					#
+	la	$a0, str4		#
+	li	$v0, print_string	#
+	syscall				# print_string(str4);
+					#
+	li	$v0, read_float		#
+	syscall				# $f0 = read_float();
+	s.s	$f0, 40($t0)		# std.grade = $f0;
+					#
+	la	$a0, str1		#
+	li	$v0, print_string	#
+	syscall				# print_string(str1);
+					#
+	lw	$t1, 0($t0)		# $t1 = std.id_number;
+					#
+	move	$a0, $t1		#
+	li	$v0, print_int		#
+	syscall				# print_intu(std.id_number);
+					#
+	la	$a0, str2		#
+	li	$v0, print_string	#
+	syscall				# print_string(str2);
+					#
+	addiu	$t2, $t0, 22		# $t2 = std+22;
+					#
+	move	$a0, $t2		#
+	li	$v0, print_string	#
+	syscall				# print_string(std.last_name);
+					#
+	li	$a0, ','		#
+	li	$v0, print_char		#
+	syscall				# print_char(',');
+					#
+	addiu	$t1, $t0, 4		# $t1 = std+4;
+					#
+	move	$a0, $t1		#
+	li	$v0, print_string	#
+	syscall				# print_string(std.first_name);
+					#
+	la	$a0, str3		#
+	li	$v0, print_string	#
+	syscall				# print_string(str3);
+					#
+	l.s	$f0, 40($t0)		# $f0 = std.grade;
+					#
+	mov.s	$f12, $f0		#
+	li	$v0, print_float	#
+	syscall				# print_float(std.grade);
+					#
+	jr	$ra			# Fim do Programa				
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+	

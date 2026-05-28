@@ -1,0 +1,37 @@
+
+	.eqv read_int, 5
+	.eqv print_float, 2
+	
+	.data
+k1:	.float 2.59375
+k2:	.float 0.0
+
+	.text
+	.globl main
+	
+	# Mapa de Registos(main):
+	#	$t0:	val;
+	#	$f2:	res;
+main:					#
+	la	$t0, k1			# 
+	l.s	$f4, 0($t0)		# $f4 = k1;
+	la	$t0, k2			#
+	l.s	$f6, 0($t0)		# $f6 = k2;
+					#
+do:					# do {
+	li	$v0, read_int		#
+	syscall				#	$v0 = read_int();
+	move	$t0, $v0		#	$t0 = val;
+					#
+	mtc1 	$t0, $f0		#
+	cvt.s.w	$f0, $f0		#	$f0 = (float)val;
+	mul.s	$f2, $f0, $f4		#	res = $f0 * $f4;
+					#
+	mov.s	$f12, $f2		#	$f12 = res;
+	li	$v0, print_float	#
+	syscall				#	print_float(res);
+					#
+	c.eq.s	$f2, $f6		#
+	bc1f 	do			#  } while (res != 0.0);
+					#
+	jr	$ra			# Fim do Programa

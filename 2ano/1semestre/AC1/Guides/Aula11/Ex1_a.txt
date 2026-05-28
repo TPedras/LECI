@@ -1,0 +1,82 @@
+
+# Tabela de Alinhamento
+#
+# Align	| SIZE 	| Offset
+#   4	|  4	|   0
+#   1	|  18	|   4
+#   1	|  15	|   22
+#   4	|  4	|   37->40
+#-------|-------|-----------
+#   4   |  44	|-----------
+
+
+	.eqv print_string, 4
+	.eqv print_intu, 36
+	.eqv print_char, 11
+	.eqv print_float, 2
+	
+	.data
+std:	.word 72343
+	.asciiz "Napoleao"
+	.space 9
+	.asciiz "Bonaparte"
+	.space 5
+	.float 5.1
+str1:	.asciiz "\nN. Mec: "
+str2:	.asciiz "\nNome: "
+str3:	.asciiz "\nNota: "
+	
+	.text
+	.globl main
+	
+	# Mapa de Registos:
+	#	$t0:	std;
+	#	$t1:	std.id_number;
+	#	$t2:	std.fistr_name;
+	#	$t3:	std.last_name;
+	#	$f0:	std.grade;
+main:					#
+	la	$t0, std		# $t0 = &std[0]
+					#
+	la	$a0, str1		#
+	li	$v0, print_string	#
+	syscall				# print_string(str1);
+					#
+	lw	$t1, 0($t0)		# $t1 = std.id_number;
+					#
+	move	$a0, $t1		#
+	li	$v0, print_intu		#
+	syscall				# print_intu(std.id_number);
+					#
+	la	$a0, str2		#
+	li	$v0, print_string	#
+	syscall				# print_string(str2);
+					#
+	addiu	$t2, $t0, 22		# $t2 = std+22;
+					#
+	move	$a0, $t2		#
+	li	$v0, print_string	#
+	syscall				# print_string(std.last_name);
+					#
+	li	$a0, ','		#
+	li	$v0, print_char		#
+	syscall				# print_char(',');
+					#
+	addiu	$t1, $t0, 4		# $t1 = std+4;
+					#
+	move	$a0, $t1		#
+	li	$v0, print_string	#
+	syscall				# print_string(std.first_name);
+					#
+	la	$a0, str3		#
+	li	$v0, print_string	#
+	syscall				# print_string(str3);
+					#
+	l.s	$f0, 40($t0)		# $f0 = std.grade;
+					#
+	mov.s	$f12, $f0		#
+	li	$v0, print_float	#
+	syscall				# print_float(std.grade);
+					#
+	jr	$ra			# Fim do Programa
+	
