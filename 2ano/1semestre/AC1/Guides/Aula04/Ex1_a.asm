@@ -1,0 +1,50 @@
+
+	.eqv read_string, 8
+	.eqv print_int10, 1
+	.eqv SIZE, 20
+
+	.data 
+str:	.space 21 		# static char str[21]
+	
+	.text
+	.globl main
+	
+# Mapa de registos
+#	$t0 --> num
+#	$t1 --> i
+#	$t2 --> str
+#	$t3 --> str+i
+#	$t4 --> str[i]
+
+main:
+	li  $t0, 0		# num = 0;
+	li  $t1, 0		# i = 0;
+	li  $t2, 0 		# str = 0;
+	li  $t3, 0		# str+i = 0;
+	li  $t4, 0 		# str[i] = 0;
+				#
+	la  $a0, str		# $a0 = &str[0]
+	li  $a1, SIZE		#
+	li  $v0, read_string	#
+	syscall			# read_string(str, SIZE)
+	la  $t2, str		# str = &str[0]
+				#
+do:				# d0 {
+	addu $t3, $t2, $t1	# 	str+i = str+i ou &str[i]
+	lb  $t4, 0($t3)		# 	$t4 = str[i]
+				#
+if:	blt $t4, '0', endif	#	if ( (str[i] >= '0') &&
+	bgt $t4, '9', endif	#	     (str[i] <= '9') {
+	addi $t0, $t0, 1	#		num++;
+endif:				#	}
+				#
+	addi $t1, $t1, 1	# 	i++;
+				#
+while: 	bne $t4, '\0', do	# 	} while (str[i] != '\0');
+				#
+	or  $a0, $0, $t0	#
+	li  $v0, print_int10	#
+	syscall			# print_int10(num);
+				#
+	jr  $ra			# Fim do programa
+	

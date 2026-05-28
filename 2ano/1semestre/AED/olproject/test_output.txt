@@ -1,0 +1,112 @@
+
+========================================
+TEST: ImageCopy and ImageIsEqual
+========================================
+  Created chess image 100x100
+  [ImageCopy] PIXMEM accesses: 0, Time: 0.000051 s
+  Copy created successfully
+  [ImageIsEqual] PIXMEM accesses: 20000, Time: 0.000015 s
+  Images are EQUAL
+  [ImageIsEqual (different)] PIXMEM accesses: 2, Time: 0.000001 s
+  Images are DIFFERENT (expected: DIFFERENT)
+
+========================================
+TEST: ImageRotate90CW
+========================================
+  Created chess image 40x60 (WxH)
+  [ImageRotate90CW] PIXMEM accesses: 4800, Time: 0.000010 s
+  Original: 40x60, Rotated: 60x40
+  Expected rotated dimensions: 60x40
+
+========================================
+TEST: ImageRotate180CW
+========================================
+  [ImageRotate180CW] PIXMEM accesses: 4800, Time: 0.000046 s
+  Original: 40x60, Rotated: 40x60
+  Expected rotated dimensions: 40x60 (same as original)
+
+========================================
+TEST: ImageRegionFillingRecursive
+========================================
+  Created white image 50x50
+  [RegionFillingRecursive] PIXMEM accesses: 12302, Time: 0.000146 s
+  Pixels filled: 2500 (expected: 2500)
+
+========================================
+TEST: ImageRegionFillingWithSTACK
+========================================
+  Created white image 50x50
+  [RegionFillingWithSTACK] PIXMEM accesses: 12302, Time: 0.000203 s
+  Pixels filled: 2500 (expected: 2500)
+
+========================================
+TEST: ImageRegionFillingWithQUEUE
+========================================
+  Created white image 50x50
+  [RegionFillingWithQUEUE] PIXMEM accesses: 12302, Time: 0.000177 s
+  Pixels filled: 2500 (expected: 2500)
+
+========================================
+TEST: ImageSegmentation (Recursive)
+========================================
+  Created chess image 60x60 with squares of 20x20
+  [Segmentation (Recursive)] PIXMEM accesses: 11528, Time: 0.000086 s
+  Number of regions found: 4
+  Number of colors in LUT: 6
+
+========================================
+TEST: ImageSegmentation (STACK)
+========================================
+  Created chess image 60x60 with squares of 20x20
+  [Segmentation (STACK)] PIXMEM accesses: 11528, Time: 0.000117 s
+  Number of regions found: 4
+  Number of colors in LUT: 6
+
+========================================
+TEST: ImageSegmentation (QUEUE)
+========================================
+  Created chess image 60x60 with squares of 20x20
+  [Segmentation (QUEUE)] PIXMEM accesses: 11528, Time: 0.000136 s
+  Number of regions found: 4
+  Number of colors in LUT: 6
+
+========================================
+TEST: Real Images Test - feep.pbm
+========================================
+  Loaded feep.pbm: 24x7 pixels
+  Number of colors: 2
+  [Rotate90CW on feep.pbm] PIXMEM accesses: 336, Time: 0.000007 s
+  Rotated dimensions: 7x24
+  [Copy feep.pbm] PIXMEM accesses: 0, Time: 0.000002 s
+  [IsEqual feep.pbm] PIXMEM accesses: 336, Time: 0.000001 s
+  Original vs Copy: EQUAL
+
+========================================
+TEST: Real Images Test - feep.ppm
+========================================
+  Loaded feep.ppm: 24x7 pixels
+  Number of colors: 6
+  [Rotate180CW on feep.ppm] PIXMEM accesses: 336, Time: 0.000002 s
+  [RegionFilling Recursive on feep.ppm] PIXMEM accesses: 530, Time: 0.000008 s
+  Pixels filled from (0,0): 118
+  [RegionFilling STACK on feep.ppm] PIXMEM accesses: 530, Time: 0.000014 s
+  Pixels filled from (0,0): 118
+  [RegionFilling QUEUE on feep.ppm] PIXMEM accesses: 530, Time: 0.000013 s
+  Pixels filled from (0,0): 118
+
+========================================
+TEST: Segmentation on loaded PBM
+========================================
+  [Segmentation Recursive on feep.pbm] PIXMEM accesses: 710, Time: 0.000007 s
+  Number of regions found: 2
+  Number of colors in LUT: 4
+  [Segmentation STACK on feep.pbm] PIXMEM accesses: 710, Time: 0.000012 s
+  Number of regions found: 2
+  Number of colors in LUT: 4
+  [Segmentation QUEUE on feep.pbm] PIXMEM accesses: 710, Time: 0.000011 s
+  Number of regions found: 2
+  Number of colors in LUT: 4
+
+========================================
+TEST: Maze image (maze20x20w1.pbm)
+========================================

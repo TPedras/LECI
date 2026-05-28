@@ -1,0 +1,62 @@
+
+	.eqv N, 35
+	.eqv read_int, 5
+	.eqv print_int10, 1
+	.data
+a_n:	.space 140
+b_n:	.space 140
+	.text
+	.globl main
+	
+	#Mapa de registos
+	#
+main:	la $s0, a_n		#s0 = &a[0]
+	la $s1, b_n		#s1 = &b[0]
+	li $t2, 0		#n_even = 0
+	li $t3, 0		#n_odd = 0
+	
+	move $t0, $s0		#p1 = a
+	move $t1, $s1		#p2 = b
+	li $t6, N		
+	sll $t6, $t6, 2		
+	addu $t4, $s0, $t6	#a + N
+	
+	
+for1:	bge $t0, $t4, endfor1
+	li $v0, read_int
+	syscall
+	sw $v0, 0($t0)
+	addiu $t0, $t0, 4
+	j for1
+endfor1:
+	move $t0, $s0
+	move $t1, $s1
+for2:	bge $t0, $t4, endfor2
+	
+if2:	lw $t5, 0($t0)
+	andi $t6, $t5, 1
+	beq $t6, 0, else2
+	sw $t5, 0($t1)
+	addiu $t1, $t1, 4
+	addiu $t3, $t3, 1
+	j endif2
+	
+else2:	addiu $t2, $t2, 1
+
+	
+endif2: addiu $t0, $t0, 4
+	j for2
+
+endfor2:
+	move $t0, $s0
+	move $t1, $s1
+	addu $t7, $t1, $t3
+	
+for3:	bge $t1, $t7, endfor3
+	lw $a0, 0($t1)
+	li $v0, print_int10
+	syscall
+	addiu $t1, $t1, 4
+	j for3
+endfor3:
+	jr $ra

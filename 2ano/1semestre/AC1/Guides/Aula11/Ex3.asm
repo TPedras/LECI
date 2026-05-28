@@ -1,0 +1,65 @@
+# Tabela de Alinhamento:
+#
+# Align	| SIZE	| Offset
+#   1	|   14	|   0
+#   4	|    4	|   14->16
+#   8	|    8	|   20->24
+#   1	|   17	|   32
+#-------|-------|---------
+#   8	|   49	|---------
+
+	.eqv print_double, 3
+	
+	.data
+xyz:	.asciiz "Str_1"
+	.space 10
+	.word 2023
+	.double 2.7182818459045
+	.asciiz "Str_2"
+	
+k1:	.double 0.35
+
+	.text
+	.globl main
+	
+	# Mapa de Registos(f2):
+	#	$a0:	p;
+	#	$f0: 	p->g;
+	#	$t0:	p->i;
+f2:					# double f2(xyz *p) {
+	la	$t0, k1			#
+	l.d	$f4, 0($t0)		#	$f4 = *k1;
+					#
+	l.d	$f0, 24($a0)		#	$f0 = p->g;
+	lw	$t0, 16($a0)		#	$t0 = p->i;
+					#
+	mtc1 	$t0, $f2		#	
+	cvt.d.w	$f2, $f2		#	$f2 = (double) $t0;
+					#
+	mul.d	$f0, $f0, $f2		#	$f0 = $f0 * $f2;
+	div.d	$f0, $f0, $f4		#	$f0 = $f0 / $f4;
+					#
+	jr	$ra			# } Fim do Programa;
+					#
+					#
+					#
+	# Mapa de Registos(main):
+	#	$t0:	xyz;
+	#	$f0->$f12: f2(xyz);
+main:					#
+	addiu	$sp, $sp, -4		# Reservar espaço na satck;
+	sw	$ra, 0($sp)		# Salvaguardar o valor de $ra;
+					#
+	la	$t0, xyz		# $t0 = xyz;
+					#
+	move	$a0, $t0		#
+	jal	f2			# $f0 = f2(xyz);
+	mov.d	$f12, $f0		# $f12 = $f0;
+					#
+	li	$v0, print_double	#
+	syscall				# print_double($f12);
+					#
+	lw	$ra, 0($sp)		# Repor o valor de $ra;
+	addiu	$sp, $sp, 4		# Libertar espaço na satck;
+					#
+	jr	$ra			# Fim do Programa
