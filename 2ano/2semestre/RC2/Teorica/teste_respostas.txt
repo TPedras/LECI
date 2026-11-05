@@ -1,0 +1,127 @@
+
+  Questão 1: Spanning Tree e VLANs
+
+  Dados:
+   * Switches: Sw1, Sw2, Sw3, Sw4.
+   * Prioridade (VLAN 14 e 23): 32768 (igual para todos).
+   * Custos de porta: 5 (igual para todas).
+   * MAC Addresses:
+       * Sw1: c2:01:43:bc:00:00 (bc = 188)
+       * Sw2: c2:01:43:41:00:00 (41 = 65)
+       * Sw3: c2:01:43:e2:00:00 (e2 = 226)
+       * Sw4: c2:01:43:27:00:00 (27 = 39) -> Menor MAC
+
+  a) Bridge raiz na VLAN 23:
+  A Bridge Raiz é selecionada com base no menor Bridge ID (Prioridade + MAC). Como a prioridade é igual para todos, vence o switch com o menor endereço MAC. Comparando os valores hexadecimais: $27 < 41 < bc <
+  e2$.
+  Resposta: O Sw4 é a bridge raiz.
+
+  b) Porta raiz do Sw1 na VLAN 14:
+  O Sw1 deve escolher a porta que oferece o menor custo acumulado até a Root Bridge (Sw4).
+   * Caminho via Sw2 (porta e2): Sw1 -> Sw2 -> Sw4. Custo: $5 + 5 = 10$.
+   * Caminho via Sw3 (porta e3): Sw1 -> Sw3 -> Sw4. Custo: $5 + 5 = 10$.
+  Havendo empate no custo, o critério de desempate é o menor Bridge ID do vizinho:
+   * Vizinho via e2: Sw2 (MAC 41).
+   * Vizinho via e3: Sw3 (MAC e2).
+  Como $41 < e2$, o Sw2 tem o menor ID.
+  Resposta: A porta raiz do Sw1 é a e2.
+
+  c) Interfaces bloqueadas em cada uma das VLANs:
+  Como os parâmetros são iguais, a topologia da árvore será idêntica para ambas as VLANs.
+   1. Sw4 (Raiz): Todas as portas estão em Forwarding (Designated Ports).
+   2. Sw2: Root Port é a ligação direta ao Sw4. Para o segmento Sw1-Sw2, o Sw2 é a Designated Bridge (menor custo para a raiz que Sw1). Para o segmento Sw2-Sw3, ambos têm custo 5 para a raiz, mas o Sw2 vence no
+      ID ($41 < e2$), sendo Designated Bridge.
+   3. Sw3: Root Port é a ligação direta ao Sw4. No segmento Sw1-Sw3, o Sw3 é Designated Bridge ($5 < 10$). No segmento Sw2-Sw3, o Sw3 não é Designated.
+   4. Sw1: Root Port é a e2 (via Sw2). No segmento Sw1-Sw3, o Sw1 não é Designated ($10 > 5$).
+  Resposta: As interfaces bloqueadas são: Sw1 porta e3 (ligação ao Sw3) e Sw3 porta de ligação ao Sw2.
+
+  d) Solução por alteração de custos para encaminhamento ótimo:
+  O encaminhamento ótimo para tráfego inter-VLAN ou Internet visa minimizar o número de saltos até ao Gateway (Router). O Gateway da VLAN 23 está ligado ao Sw1 (f1/0) e o da VLAN 14 também (f1/1). O ideal seria
+  que o Sw1 fosse a Bridge Raiz. Como não podemos mudar a prioridade, devemos alterar os custos para forçar os caminhos diretos para o Sw1.
+  Solução: Reduzir o custo das portas do Sw1 (e2 e e3) para 1 e manter as restantes em 5. Isto fará com que os outros switches vejam o caminho via Sw1 como o preferencial para certas comunicações, embora o Sw4
+  continue a ser a raiz lógica do STP. Nota: Em termos práticos de exame, a resposta esperada foca em aproximar a topologia lógica da localização física dos gateways.
+
+  ---
+
+  Questão 2: Encaminhamento IP (RIP e OSPF)
+
+  a) Conectividade total:
+  Sim. Todos os routers têm o protocolo RIP ativo em todas as redes. O RIP garante a propagação de rotas para toda a topologia. A existência de OSPF nos routers centrais (R2, R3, R5, R6) serve para otimizar o
+  tráfego interno dessa área, mas o RIP assegura que R1 e R4 (que não têm OSPF) conheçam todos os destinos.
+
+  b) Tabela de encaminhamento do R1 para 195.2.88.0/24:
+  O R1 só corre RIP. O RIP escolhe o caminho com o menor número de saltos.
+   * Destino: 195.2.88.0/24 (rede entre R3 e R6).
+   * Caminho 1: R1 -> R2 -> R3. (2 saltos).
+   * Caminho 2: R1 -> R4 -> R5 -> R6. (3 saltos).
+  Resposta: Entrada no R1: Rede 195.2.88.0/24, Próximo Salto 197.4.4.2 (R2), Métrica 2.
+
+  c) Percurso ICMP (Ping do R2 para terminal em 196.6.3.0/24):
+  A rede 196.6.3.0/24 está entre R4 e R5.
+   * Echo Request (R2 -> Terminal): O R2 tem rotas via RIP e OSPF. Como a Distância Administrativa (AD) do OSPF (110) é menor que a do RIP (120), o R2 prefere o caminho OSPF. O percurso OSPF de R2 para R5 (que
+     conhece a rede 196.6.3.0) é R2 -> R3 -> R6 -> R5.
+       * Percurso: R2 -> R3 -> R6 -> R5 -> Terminal.
+   * Echo Reply (Terminal -> R2): O terminal usa o seu default gateway R5. O R5 precisa de chegar à rede do R2 (197.4.4.0/24). Novamente, prefere o caminho OSPF via R6 e R3.
+       * Percurso: Terminal -> R5 -> R6 -> R3 -> R2.
+
+  d) Solução para menor número de saltos sem mudar RIP/OSPF:
+  A solução é utilizar rotas estáticas, pois estas têm AD = 1, sobrepondo-se ao OSPF e RIP.
+   * No R2: Adicionar rota estática para 196.6.3.0/24 via 197.4.4.1 (R1). Isto reduz o percurso de 3 para 2 saltos (R2-R1-R4).
+   * No R5: Adicionar rota estática para 197.4.4.0/24 via 196.6.3.4 (R4). Isto reduz o percurso de retorno.
+
+  ---
+
+  Questão 3: Sistemas Autónomos e OSPF
+
+  a) Pelos percursos OSPF de custo mínimo:
+  Deve-se configurar em R1 e R2 a redistribuição da rota por defeito como Tipo E1 com o mesmo custo externo. Como as rotas E1 somam o custo interno do OSPF ao custo anunciado, cada router interno escolherá o
+  router fronteira (R1 ou R2) que estiver a uma distância OSPF menor.
+
+  b) Por R1 ou por R2 quando R1 falha:
+  Deve-se configurar rotas por defeito do Tipo E2. O R1 anuncia a rota com um custo baixo (ex: 10) e o R2 anuncia com um custo muito superior (ex: 100). Como no Tipo E2 o custo interno não é considerado na
+  comparação (se os custos externos forem diferentes), todos os routers usarão sempre o R1 enquanto este estiver ativo.
+
+  ---
+
+  Questão 4: MPLS
+
+  a) Principais vantagens:
+   1. Eficiência no Encaminhamento: O switching é feito com base em etiquetas (labels) de tamanho fixo, evitando a pesquisa complexa de prefixo mais longo (LPM) no cabeçalho IP.
+   2. Engenharia de Tráfego (TE): Permite estabelecer caminhos (LSPs) explícitos que não seguem necessariamente o "shortest path" do IGP, permitindo otimizar a utilização dos recursos da rede.
+
+  b) Vantagens com LDP:
+  O LDP estabelece LSPs seguindo exatamente o percurso determinado pelo IGP. Assim, obtém-se a eficiência no switching e o suporte a VPNs MPLS, mas não se obtém a vantagem da Engenharia de Tráfego, pois o tráfego
+  continuará a seguir o caminho mais curto.
+
+  ---
+
+  Questão 5: Multicast PIM-SM
+
+  a) Árvore group-shared tree (Instant 1):
+  Em PIM-SM, os recetores juntam-se primeiro à árvore partilhada centrada no RP (R2).
+   * O router do recetor 1 (R3) envia um PIM Join (, G) para o R2. Percurso: R2 -> R3*.
+   * O router do recetor 2 (R4) envia um PIM Join (, G) para o R2 via R1. Percurso: R2 -> R1 -> R4*.
+  Árvore: Raiz R2, ramos para R3 e para R4 (via R1).
+
+  b) Árvore source-based tree (Instant 2):
+  Quando a fonte (em R1) começa a transmitir, os routers de último salto (LHR) mudam para a árvore de caminho mais curto (SPT) para minimizar o atraso.
+   * R4 está diretamente ligado a R1, logo a SPT é R1 -> R4.
+   * R3 recebe via R2. A SPT de R1 para R3 é R1 -> R2 -> R3.
+  Árvore: Raiz R1, ramos para R4 e para R3 (via R2).
+
+  c) Mensagens PIM na rede 192.13.7.0/24 (R1-R4):
+   * Instante 1: PIM Join (*, 225.2.2.2) enviado pelo R4 para o R1 (em direção ao RP).
+   * Instante 2: PIM Join (S, G) enviado pelo R4 para o R1 (para estabelecer a SPT direta com a fonte).
+
+  ---
+
+  Questão 6: Estabelecimento de Sessão SIP
+
+   1. Registo: Ambos os telefones enviam mensagens REGISTER para o servidor do domínio para mapear o seu URI SIP ao seu endereço IP atual.
+   2. Convite: O Telefone A envia um INVITE para o servidor Proxy com o URI do Telefone B.
+   3. Localização e Encaminhamento: O Proxy localiza o IP de B e reencaminha o INVITE. O Proxy pode responder a A com 100 Trying.
+   4. Alerta: O Telefone B toca e envia 180 Ringing de volta para A (via Proxy).
+   5. Aceitação: Quando o utilizador B atende, o telefone envia 200 OK.
+   6. Confirmação: O Telefone A recebe o OK e responde com ACK.
+   7. Sessão de Media: O tráfego de voz flui diretamente entre os IPs de A e B usando o protocolo RTP.
+   8. Terminação: No final, um dos lados envia BYE e o outro confirma com 200 OK.

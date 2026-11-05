@@ -1,0 +1,10 @@
+{
+  "idf.currentSetup": "/home/pedrosa/.espressif/v6.0.1/esp-idf",
+  "idf.customExtraVars": {},
+  "clangd.path": "/home/pedrosa/.espressif/tools/esp-clang/esp-20.1.1_20250829/esp-clang/bin/clangd",
+  "clangd.arguments": [
+    "--background-index",
+    "--query-driver=**",
+    "--compile-commands-dir=/home/pedrosa/Documents/LECI/2ano/2semestre/SS/Pratica/Esp/build"
+  ]
+}

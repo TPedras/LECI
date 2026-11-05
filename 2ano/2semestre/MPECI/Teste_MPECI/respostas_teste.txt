@@ -1,0 +1,233 @@
+1. Para resolver este problema, vamos definir os seguintes eventos:
+   - L: A tentativa de acesso é legítima.
+   - I: A tentativa de acesso é ilegítima (Lᶜ).
+   - A: O sistema aceita o acesso.
+   - R: O sistema rejeita o acesso (Aᶜ).
+
+  Dados do problema:
+   - P(L) = 0,95 ⟹ P(I) = 1 - 0,95 = 0,05
+   - $P(R | L) = 0,02$ (Falsos Negativos / Rejeição de legítimos)
+   - $P(A | I) = 0,01$ (Falsos Positivos / Aceitação de ilegítimos)
+
+  ---
+
+  a) Calcule as probabilidades de verdadeiros positivos e de verdadeiros negativos.
+
+   * Verdadeiro Positivo ($P(A | L)$): É a probabilidade de o sistema aceitar um acesso que é legítimo.
+      P(A | L) = 1 - P(R | L) = 1 - 0,02 = 0,98  (ou 98%)
+
+   * Verdadeiro Negativo ($P(R | I)$): É a probabilidade de o sistema rejeitar um acesso que é ilegítimo.
+      P(R | I) = 1 - P(A | I) = 1 - 0,01 = 0,99  (ou 99%)
+
+  ---
+
+  b) Qual a probabilidade de o sistema aceitar um acesso? ($P(A)$)
+
+  Utilizando a Lei da Probabilidade Total:
+  P(A) = P(A | L) · P(L) + P(A | I) · P(I)
+
+  Substituindo os valores:
+  P(A) = (0,98 · 0,95) + (0,01 · 0,05)
+  P(A) = 0,931 + 0,0005
+  P(A) = 0,9315  (ou 93,15%)
+
+  ---
+
+  c) Sabendo que o sistema deu acesso, qual a probabilidade desse acesso ser legítimo? ($P(L | A)$)
+
+  Utilizando o Teorema de Bayes:
+  P(L | A) = (P(A | L) · P(L))/(P(A))
+
+  Substituindo os valores obtidos anteriormente:
+  P(L | A) = (0,931)/(0,9315)
+  P(L | A) ≈ 0,99946  (ou aproximadamente 99,95%)
+
+
+  2.
+
+  a) Indique quais os tipos de distribuição de cada uma das variáveis aleatórias.
+
+   * Xᵢ (Distribuição de Bernoulli): Cada bit individual i tem apenas dois resultados possíveis: está incorreto (Xᵢ=1) com probabilidade p, ou correto (Xᵢ=0) com probabilidade $1-p$.
+      Xᵢ ∼ Bernoulli(p = 10⁻³)
+
+   * S (Distribuição Binomial): A variável S é a soma de n variáveis de Bernoulli independentes e identicamente distribuídas (i.i.d.). Ela conta o número de sucessos (erros) em n tentativas.
+      S ∼ Binomial(n = 10⁴, p = 10⁻³)
+
+  ---
+
+  b) Calcule a média e variância de S.
+
+  Para uma distribuição Binomial $B(n, p)$:
+
+   * Média ($E[S]$):
+      E[S] = n · p
+      E[S] = 10⁴ · 10⁻³ = 10
+
+   * Variância $Var(S)$):
+      Var(S) = n · p · (1 - p)
+      Var(S) = 10 · (1 - 0,001) = 10 · 0,999 = 9,99
+
+  ---
+
+  c) Estime, usando o Teorema do Limite Central (TLC), $P(S > 20)$.
+
+  O TLC diz que, para um n suficientemente grande, a soma S pode ser aproximada por uma Distribuição Normal:
+  S ≈ N(μ = E[S], σ^2 = Var(S)) ⟹ S ≈ N(10, 9,99)
+
+  Onde o desvio padrão é σ = √(9,99) ≈ 3,1607.
+
+  Queremos calcular $P(S > 20)$. Para usar a tabela da Normal Standard (Z), padronizamos a variável:
+  Z = (S - μ)/(σ)
+
+  Cálculo:
+  P(S > 20) = P\left(Z > (20 - 10)/(3,1607)\right)
+  P(S > 20) = P(Z > (10)/(3,1607))
+  P(S > 20) ≈ P(Z > 3,16)
+
+   * x = 3.10 ⇒ Q(x) = 0.001
+   * x = 3.20 ⇒ Q(x) = 0.001
+
+  Sendo $3.16$ intermédio, podemos concluir diretamente da tabela que:
+  P(S > 20) ≈ Q(3.16) ≈ 0.001
+  (Nota: Se usar a correção de continuidade para passar de discreto a contínuo, calcularia $P(S > 20,5)$, o que daria P(Z > 3,32) ≈ 0,00045, mas em muitos enunciados de MPECI aceita-se a aproximação direta sem
+  correção).
+
+
+
+  7.
+
+  De acordo com o Slide 6 do TP12, um servidor de video-streaming onde a capacidade da ligação é limitativa e não existe fila de espera (os pedidos são bloqueados se a rede estiver no limite) é modelado por um
+  sistema de filas de espera $M/M/m/m$. 
+  A notação de Kendall $M/M/m/m$ significa:
+   * M (Markoviano): Chegadas segundo um processo de Poisson.
+   * M (Markoviano): Duração do serviço (filmes) com distribuição exponencial.
+   * m servidores: Capacidade máxima de filmes em simultâneo.
+   * m lugares no sistema: Não há fila de espera; a capacidade do sistema é igual ao número de servidores.
+
+  1. Determinação da capacidade máxima (m):
+  A capacidade do servidor em número de filmes transmitidos em simultâneo é dada por m = ⌊ C / B ⌋ (conforme Slide 6 do TP12):
+   * Capacidade da ligação (C) = $10$ Mbps
+   * Débito do formato (B) = $3$ Mbps
+   * m = ⌊ 10 / 3 ⌋ = 3 filmes. (Os estados possíveis do servidor são, portanto, n ∈ {0, 1, 2, 3} filmes em transmissão).
+
+  2. Taxas de chegada (λ) e de serviço (μ):
+  Para uniformizar os cálculos, vamos colocar tudo na mesma unidade de tempo (horas):
+   * Taxa de chegada (λ) = $2$ pedidos/hora
+   * Duração média de um filme (1/μ) = 90 minutos = $1.5$ horas
+   * Taxa de serviço de um filme (μ) = $1 / 1.5 =$ $2/3$ transmissões/hora
+
+  Rácio tráfego oferecido (λ/μ): 
+   * λ/μ = 2 / (2/3) = $3$ Erlangs
+
+  ---
+
+  a) Diagrama de transição de estados
+
+  Fonte: Baseado no diagrama da Cadeia de Markov para sistemas $M/M/m/m$ apresentado no Slide 7 e 50 do TP12.
+
+  Num sistema $M/M/m/m$, o estado n representa o número de filmes em transmissão simultânea. As transições ocorrem da seguinte forma:
+   * Nascimentos (chegadas): Ocorrem a uma taxa constante λ = 2. Movem o sistema do estado n para $n+1$.
+   * Mortes (partidas/fins de filme): Quando o sistema está no estado n, existem n filmes a ser transmitidos. Como qualquer um pode terminar, a taxa global de partida é n × μ.
+       * Para $n=1$: Taxa de saída = 1μ = 2/3
+       * Para $n=2$: Taxa de saída = 2μ = 4/3
+       * Para $n=3$: Taxa de saída = 3μ = 6/3 = 2
+
+  Representação do Diagrama:
+
+    1        ( 2 )          ( 2 )          ( 2 )
+    2    +---------+    +---------+    +---------+
+    3    |         |    |         |    |         |
+    4    |         v    |         v    |         v
+    5  ( 0 )      ( 1 )          ( 2 )          ( 3 )
+    6    ^         |    ^         |    ^         |
+    7    |         |    |         |    |         |
+    8    +---------+    +---------+    +---------+
+    9      ( 2/3 )        ( 4/3 )        (  2  )
+   10
+   11 Nota: Os valores entre parênteses indicam as taxas de transição em [transições/hora].
+
+  ---
+
+  b) Probabilidade de bloqueio (em %)
+
+  Fonte e Raciocínio: O bloqueio ocorre quando um pedido chega e o servidor já está a transmitir a sua capacidade máxima ($m=3$ filmes). Queremos calcular a probabilidade de o sistema estar no estado 3, ou seja,
+  π_3. Para um sistema $M/M/m/m$, a fórmula para o estado m é a famosa fórmula de Erlang-B.
+  No Formulário de exame (página 2 do PDF) e no Slide 51 do TP12, a fórmula é dada por:
+
+  π_m = ((λ/μ)ᵐ / m!)/(∑ᵢ₌₀^m (λ/μ)ⁱ / i!)
+
+  Cálculo:
+   * $m = 3$
+   * (λ/μ) = 3
+
+  Vamos calcular os termos do somatório no denominador (para $i = 0, 1, 2, 3$):
+   * $i=0$: (3⁰)/(0!) = (1)/(1) = 1
+   * $i=1$: (3¹)/(1!) = (3)/(1) = 3
+   * $i=2$: (3²)/(2!) = (9)/(2) = 4.5
+   * $i=3$: (3³)/(3!) = (27)/(6) = 4.5
+
+  Somatório (Denominador) $= 1 + 3 + 4.5 + 4.5 = 13$
+  Numerador (termo para $m=3$) $= 4.5$
+
+  π_3 = (4.5)/(13) ≈ 0.34615
+
+  Resultado: A probabilidade de bloqueio do serviço de video-streaming é de aproximadamente 34.62%.
+
+  ---
+
+  c) Percentagem de tempo em que o servidor não está a transmitir nenhum filme
+
+  Fonte e Raciocínio: O servidor não transmite nenhum filme quando está no estado 0. O valor de π_0 representa a probabilidade limite e a percentagem de tempo (em regime estacionário) no estado 0.
+  A fórmula para π_0 encontra-se no Formulário de exame (página 2) e no Slide 43 do TP12.
+
+  π_0 = (1)/(∑ᵢ₌₀^m (λ/μ)ⁱ / i!)
+
+  Cálculo:
+  Como já calculámos o denominador no passo anterior (que é o somatório de todos os termos ponderados), basta colocar 1 no numerador e dividir pelo somatório.
+
+  π_0 = (1)/(13) ≈ 0.07692
+
+  Resultado: O servidor não está a transmitir nenhum filme durante aproximadamente 7.69% do tempo.
+
+  8.
+
+  Análise dos Percursos (Topologia da Rede)
+  Observando as ligações fornecidas, temos as seguintes disponibilidades (a):
+   * a_{AD} = 0.994
+   * a_{BA} = 0.992
+   * a_{BD} = 0.995
+   * a_{BC} = 0.99
+   * a_{DC} = 0.989
+
+  Nesta topologia específica, o nó A tem apenas duas ligações: uma para B e outra para D. O tráfego que sai de B e passa por A é obrigado a seguir para D para chegar a C. Logo, podemos resolver a disponibilidade
+  de forma exata usando reduções de ligações em série e paralelo (sem necessitar do Teorema do Factoring usado em pontes complexas).
+
+  Passo-a-Passo dos Cálculos
+
+  Passo 1: Caminho B → A → D (Elementos em série)
+  Como o tráfego que passa por A segue obrigatoriamente a sequência B-A e depois A-D, estas ligações estão em série. A disponibilidade de elementos em série é o seu produto:
+   * a_{BAD} = a_{BA} × a_{AD}
+   * a_{BAD} = 0.992 × 0.994 = 0.986048
+
+  Passo 2: Equivalente entre B e D (Elementos em paralelo)
+  Para ir do nó B ao nó D, o tráfego pode seguir pela ligação direta B-D ou pelo caminho recém-calculado B-A-D. Como representam alternativas, estão em paralelo:
+   * a_{B→ D} = 1 - [(1 - a_{BD}) × (1 - a_{BAD})]
+   * a_{B→ D} = 1 - [(1 - 0.995) × (1 - 0.986048)]
+   * a_{B→ D} = 1 - [0.005 × 0.013952]
+   * a_{B→ D} = 1 - 0.00006976 = 0.99993024
+
+  Passo 3: Caminho B → D → C (Elementos em série)
+  Para chegar a C passando por D, o bloco equivalente B→ D está em série com a ligação D-C:
+   * a_{BDC} = a_{B→ D} × a_{DC}
+   * a_{BDC} = 0.99993024 × 0.989 = 0.98893100736
+
+  Passo 4: Disponibilidade Total da Rede (Elementos em paralelo)
+  Finalmente, entre a origem (B) e o destino (C), o tráfego pode fluir pela ligação direta B-C ou por toda a ramificação B-D-C calculada no passo anterior. Estas são duas rotas em paralelo:
+   * Aₜₒₜₐₗ = 1 - [(1 - a_{BC}) × (1 - a_{BDC})]
+   * Aₜₒₜₐₗ = 1 - [(1 - 0.99) × (1 - 0.98893100736)]
+   * Aₜₒₜₐₗ = 1 - [0.01 × 0.01106899264]
+   * Aₜₒₜₐₗ = 1 - 0.0001106899264
+   * Aₜₒₜₐₗ = 0.9998893100736
+
+  Resultado Final
+  Arredondando o valor para 6 casas decimais (conforme o pedido no enunciado):

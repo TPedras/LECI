@@ -1,0 +1,71 @@
+
+NOTAS:
+- Nas perguntas em que for necessário fazer cálculos não apresente apenas os resultados. É necessário apresentar o processo e respetivos cálculos intermédios.
+- As respostas à Parte 1 e à Parte 2 devem ser escritas em folhas separadas.
+
+Parte 1
+
+1. Considere um sistema de controlo de acessos que utiliza informação biométrica para aceitar/recusar acesso a umas instalações. Considere que:
+   - 95% das tentativas de acesso são legítimas,
+   - 2% das tentativas de acesso legítimas são rejeitadas (falsos negativos),
+   - é dado acesso a 1% das tentativas de acesso ilegítimas (falsos positivos).
+   a) Calcule as probabilidades de verdadeiros positivos e de verdadeiros negativos. (0.5 valores)
+   b) Qual a probabilidade de o sistema aceitar um acesso? (1.0 valores)
+   c) Sabendo que o sistema deu acesso, qual a probabilidade desse acesso ser legítimo? (1.0 valores)
+
+2. Um sistema de transmissão de dados comete erros com probabilidade $p=10^{-3}$ ao descodificar cada bit. Se for transmitido um pacote com $n=10^4$ bits e forem definidas as variáveis aleatórias $X_i$ e $S$ da seguinte forma:
+   $X_i = \begin{cases} 1, & \text{se o bit } i \text{ estiver incorreto} \\ 0, & \text{se o bit } i \text{ estiver correto} \end{cases}$
+   $S = \sum_{i=1}^n X_i$
+   em que $S$ corresponde ao número total de bits errados num pacote de tamanho $n$.
+   a) Indique quais os tipos de distribuição de cada uma das variáveis aleatórias. (0.5 valores)
+   b) Calcule a média e variância de $S$. (1.0 valores)
+   c) Estime, usando o Teorema do Limite Central, $P(S > 20)$. (1.0 valores)
+
+3. Para cada pacote transmitido numa rede, definem-se as variáveis aleatórias seguintes:
+   - $X$: atraso do pacote (0 = baixo, 1 = alto)
+   - $Y$: ocorrência de perda (0 = não perdido, 1 = perdido)
+   A distribuição conjunta da variável aleatória $XY$ é dada por:
+   
+   X \ Y | 0    | 1
+   ------|------|------
+   0     | 0.65 | 0.10
+   1     | 0.15 | 0.10
+
+   a) Determine as funções massa de probabilidade marginais de $X$ e $Y$. (0.5 valores)
+   b) Os eventos "atraso alto" e "perda" são independentes? Justifique. (0.5 valores)
+   c) Calcule $P(X = 1 | Y = 1)$. (0.5 valores)
+   d) Calcule $cov(X,Y)$ e diga justificando se $X$ e $Y$ são variáveis aleatórias independentes. (1.0 valores)
+
+4. Considere um conjunto de 4 páginas web, A, B, C e D em que A tem links para todas as outras, C tem um link para D e D tem um link para A.
+   a) Represente esquematicamente o conjunto de páginas e respetivos links. Escreva a matriz de hyperlinks do conjunto de páginas. (1.0 valores)
+   b) Indique eventuais "dead ends" e/ou "spyder traps". (0.5 valores)
+   c) Descreva o processo para calcular o pageRank deste conjunto de páginas. (1.0 valores)
+
+Parte 2
+
+5. Considere que uma ligação sem fios para comunicação de pacotes pode estar num de 3 estados possíveis – Normal (N), Interferência Ligeira (L) ou Interferência Severa (S) – de acordo com a cadeia de Markov seguinte (taxas em número de transições por hora):
+   (Diagrama: N -> L com taxa 1; L -> N com taxa 400; L -> S com taxa 50; S -> L com taxa 10)
+   Considere que a probabilidade de cada pacote ser recebido com pelo menos um bit errado é de 0.001% no estado N, 0.2% no estado L e 5% no estado S. Determine:
+   a) a probabilidade, em %, da ligação estar no estado L, (1.0 valores)
+   b) o tempo médio de permanência, em segundos, da ligação no estado S, (1.0 valores)
+   c) a probabilidade, em %, da ligação transitar para o estado N quando está no estado L. (1.0 valores)
+
+6. Considere um serviço a correr num servidor cujo hardware falha em média ao fim de 600 dias e cujo software falha em média ao fim de 30 dias. As falhas de hardware são reparadas em média ao fim de 2 dias e as falhas de software são reparadas ao fim de 2 horas. A reparação das falhas de hardware não inclui a reparação de software.
+   a) Desenhe o diagrama de transição de estados da cadeia de Markov que caracteriza a disponibilidade do serviço. (0.5 valores)
+   b) Determine a disponibilidade do serviço, em percentagem. (1.5 valores)
+
+7. Considere um servidor de video-streaming com uma interface de rede de 10 Mbps e com todos os filmes disponíveis num formato cujo ritmo de transmissão é 3 Mbps. Considere que a taxa de pedidos de filmes é de 2 pedidos/hora e que os filmes têm uma duração exponencialmente distribuída de média de 90 minutos.
+   a) Desenhe o diagrama de transição de estados da cadeia de Markov que caracteriza a ocupação do servidor. (1.0 valores)
+   b) Determine a probabilidade de bloqueio (em %) do serviço de video-streaming. (1.0 valores)
+   c) Determine a percentagem de tempo em que o servidor não está a transmitir nenhum filme. (1.0 valores)
+
+8. Considere um serviço entre os dois sites na rede da figura em que os routers estão configurados com o protocolo OSPF. A figura indica a disponibilidade de cada ligação. Considere que os routers têm disponibilidade total e assuma que o tempo de convergência do OSPF é nulo. Determine a disponibilidade da rede (com 6 casas decimais) para o serviço entre os dois sites. (2.0 valores)
+   (O diagrama mostra as seguintes disponibilidades de ligação:
+   Site 1 para B - ligação direta no diagrama
+   A para D: 0.994
+   B para A: 0.992
+   B para D: 0.995
+   B para C: 0.99
+   D para C: 0.989
+   C para Site 2: (ligação direta no diagrama)
+   Nota: Os routers A, B, C, D têm disponibilidade total.)
